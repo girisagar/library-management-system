@@ -8,10 +8,8 @@ import java.util.List;
 import lms.business.*;
 
 public class TestData {
-	//List<LibraryMember> members = new ArrayList<LibraryMember>();
+	// List<LibraryMember> members = new ArrayList<LibraryMember>();
 	@SuppressWarnings("serial")
-	
-	
 	List<Address> addresses = new ArrayList<Address>() {
 		{
 			add(new Address("101 S. Main", "Fairfield", "IA", "52556"));
@@ -27,39 +25,63 @@ public class TestData {
 	@SuppressWarnings("serial")
 	public List<Author> allAuthors = new ArrayList<Author>() {
 		{
-			add(new Author("Joe", "Thomas", "641-445-2123", addresses.get(0), "A happy man is he."));
-			add(new Author("Sandra", "Thomas", "641-445-2123", addresses.get(0), "A happy wife is she."));
-			add(new Author("Nirmal", "Pugh", "641-919-3223", addresses.get(1), "Thinker of thoughts."));
-			add(new Author("Andrew", "Cleveland", "976-445-2232", addresses.get(2), "Author of childrens' books."));
-			add(new Author("Sarah", "Connor", "123-422-2663", addresses.get(3), "Known for her clever style."));
+			add(new Author("Joe", "Thomas", "641-445-2123", addresses.get(0),
+					"A happy man is he."));
+			add(new Author("Sandra", "Thomas", "641-445-2123",
+					addresses.get(0), "A happy wife is she."));
+			add(new Author("Nirmal", "Pugh", "641-919-3223", addresses.get(1),
+					"Thinker of thoughts."));
+			add(new Author("Andrew", "Cleveland", "976-445-2232",
+					addresses.get(2), "Author of childrens' books."));
+			add(new Author("Sarah", "Connor", "123-422-2663", addresses.get(3),
+					"Known for her clever style."));
 		}
 	};
-	
-	
-	//Book(int id, String isbn, String title, int maxCheckoutLength, List<Author> authors)
+
+	@SuppressWarnings("serial")
+	public List<Member> allMember = new ArrayList<Member>() {
+		{
+			add(new Member("Joe", "Thomas", "641-445-2123", "",
+					"A happy man is he."));
+			add(new Member("Sandra", "Thomas", "641-445-2123", "",
+					"A happy wife is she."));
+			add(new Member("Nirmal", "Pugh", "641-919-3223", "",
+					"Thinker of thoughts."));
+			add(new Member("Andrew", "Cleveland", "976-445-2232", "",
+					"Author of childrens' books."));
+			add(new Member("Sarah", "Connor", "123-422-2663", "",
+					"Known for her clever style."));
+		}
+	};
+
+	// Book(int id, String isbn, String title, int maxCheckoutLength,
+	// List<Author> authors)
 	@SuppressWarnings("serial")
 	List<Book> allBooks = new ArrayList<Book>() {
 		{
-			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
-			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
-			add(new Book("99-22223", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
-			add(new Book("48-56882", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
-			
+			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(
+					allAuthors.get(0), allAuthors.get(1))));
+			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors
+					.get(2))));
+			add(new Book("99-22223", "Thinking Java", 21,
+					Arrays.asList(allAuthors.get(3))));
+			add(new Book("48-56882", "Jimmy's First Day of School", 7,
+					Arrays.asList(allAuthors.get(4))));
+
 		}
 	};
-	
-	
-//	List<CheckoutRecord> allRecords = new ArrayList<CheckoutRecord>() {
-//		{
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//			add(new CheckoutRecord());
-//		}
-//	};
+
+	// List<CheckoutRecord> allRecords = new ArrayList<CheckoutRecord>() {
+	// {
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// add(new CheckoutRecord());
+	// }
+	// };
 	@SuppressWarnings("serial")
 	List<User> allUsers = new ArrayList<User>() {
 		{
@@ -68,17 +90,18 @@ public class TestData {
 			add(new User("103", "111", Auth.BOTH));
 		}
 	};
-	
+
 	public static void main(String[] args) {
 		TestData td = new TestData();
 		td.bookData();
-		//td.libraryMemberData();
+		// td.libraryMemberData();
 		td.userData();
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
 		System.out.println(da.readUserMap());
 	}
-	///create books
+
+	// /create books
 	public void bookData() {
 		allBooks.get(0).addCopy();
 		allBooks.get(0).addCopy();
@@ -88,26 +111,25 @@ public class TestData {
 		allBooks.get(2).addCopy();
 		DataAccessFacade.loadBookMap(allBooks);
 	}
-	
+
 	public void userData() {
 		DataAccessFacade.loadUserMap(allUsers);
 	}
-	
+
 	/*
-	public void checkoutRecordData() {
-		allRecords.get(0).addEntry(allEntries.get(0));
-		allRecords.get(0).addEntry(allEntries.get(4));
-		allRecords.get(1).addEntry(allEntries.get(1));
-		allRecords.get(1).addEntry(allEntries.get(5));
-		allRecords.get(2).addEntry(allEntries.get(2));
-		allRecords.get(2).addEntry(allEntries.get(6));
-		allRecords.get(3).addEntry(allEntries.get(3));
-		allRecords.get(3).addEntry(allEntries.get(7));
-	}*/
-	
-	//create library members
-	
-	//public void libraryMemberData() {
-		
-	
+	 * public void checkoutRecordData() {
+	 * allRecords.get(0).addEntry(allEntries.get(0));
+	 * allRecords.get(0).addEntry(allEntries.get(4));
+	 * allRecords.get(1).addEntry(allEntries.get(1));
+	 * allRecords.get(1).addEntry(allEntries.get(5));
+	 * allRecords.get(2).addEntry(allEntries.get(2));
+	 * allRecords.get(2).addEntry(allEntries.get(6));
+	 * allRecords.get(3).addEntry(allEntries.get(3));
+	 * allRecords.get(3).addEntry(allEntries.get(7)); }
+	 */
+
+	// create library members
+
+	// public void libraryMemberData() {
+
 }

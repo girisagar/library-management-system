@@ -5,18 +5,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TableView layoutX="14.0" layoutY="23.0" prefHeight="349.0" prefWidth="453.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Firstname" />
-          <TableColumn prefWidth="75.0" text="Lastname" />
-          <TableColumn prefWidth="75.0" text="State" />
-          <TableColumn prefWidth="75.0" text="Street" />
-          <TableColumn prefWidth="75.0" text="City" />
-          <TableColumn prefWidth="75.0" text="Phone" />
-        </columns>
-      </TableView>
-      <Button layoutX="500.0" layoutY="188.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Add member" />
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="lms.ui.InterfaceController">
+	<children>
+		<TableView layoutX="14.0" layoutY="23.0" prefHeight="349.0"
+			prefWidth="453.0" fx:id="member_addTableView">
+			<columns>
+				<TableColumn prefWidth="75.0" text="Firstname" fx:id="firstname" />
+				<TableColumn prefWidth="75.0" text="Lastname" fx:id="lastname" />
+				<TableColumn prefWidth="75.0" text="State" fx:id="state" />
+				<TableColumn prefWidth="75.0" text="Street" fx:id="street" />
+				<TableColumn prefWidth="75.0" text="City" fx:id="city" />
+				<TableColumn prefWidth="75.0" text="Phone" fx:id="phone" />
+			</columns>
+		</TableView>
+		<Button id="add-member-button" layoutX="500.0" layoutY="188.0"
+			mnemonicParsing="false" onAction="#handleAddMemberButtonAction"
+			prefHeight="32.0" prefWidth="72.0" text="Add member" />
+	</children>
 </Pane>
