@@ -1,0 +1,9 @@
+*.pydevproject
+.project
+.metadata
+bin/**
+*.class
+.metadata
+bin/**
+tmp/**
+tmp/**/*
