@@ -9,7 +9,7 @@ final public class RuleSetFactory {
 	private RuleSetFactory(){}
 	static HashMap<Class<? extends Component>, RuleSet> map = new HashMap<>();
 	static {
-// add your window ruleset here.
+// add your window's ruleset here.
 //		map.put(AddrWindow.class, new AddressRuleSet());
 //		map.put(ProfileWindow.class, new CustomerProfileRuleSet());
 		
