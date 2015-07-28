@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="14.0" layoutY="23.0" prefHeight="349.0" prefWidth="453.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Firstname" />
+          <TableColumn prefWidth="75.0" text="Lastname" />
+          <TableColumn prefWidth="75.0" text="State" />
+          <TableColumn prefWidth="75.0" text="Street" />
+          <TableColumn prefWidth="75.0" text="City" />
+          <TableColumn prefWidth="75.0" text="Phone" />
+        </columns>
+      </TableView>
+      <Button layoutX="500.0" layoutY="188.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Add member" />
+   </children>
+</Pane>
