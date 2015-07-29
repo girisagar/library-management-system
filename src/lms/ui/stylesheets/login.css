@@ -3,7 +3,7 @@ root {
 }
 
 .root {
-     -fx-background-image: url("../img/loginbox.png");
+     -fx-background-image: url("../imgs/loginbox.png");
 }
 
 .label {
