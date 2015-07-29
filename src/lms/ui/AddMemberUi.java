@@ -12,7 +12,7 @@ public class AddMemberUi extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		try {
 
-			Parent root = FXMLLoader.load(getClass().getResource("fxml/AddMemberFormFxml.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("fxml/AddMember.fxml"));
 			primaryStage.setTitle("Add Member");
 			primaryStage.setScene(new Scene(root, 590, 400));
 			primaryStage.show();

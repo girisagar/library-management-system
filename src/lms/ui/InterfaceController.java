@@ -1,24 +1,37 @@
 package lms.ui;
 
 import java.io.IOException;
+import java.io.IOException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.ActionEvent;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXML;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import lms.business.LoginException;
+import lms.business.Member;
 import lms.business.SystemController;
 import lms.business.rulsets.RuleSetFactory;
+import lms.dataaccess.TestData;
 
 public class InterfaceController {
 
@@ -32,7 +45,7 @@ public class InterfaceController {
 	private PasswordField passwordField;
 	@FXML
 	private GridPane loginPane;
-
+//	@FXML private memberListTableView;
 	@FXML
 	protected void handleLoginSubmitButtonAction(ActionEvent event) {
 		controller = new SystemController();
@@ -68,7 +81,12 @@ public class InterfaceController {
 	}
 
 	@FXML
+	protected void handleSubmitButtonAction(ActionEvent event) {
+		// actiontarget.setText("Sign in button pressed");
+		System.out.println("Submit button pressed");
+	}
 
+	@FXML
 	protected void handleAddMemberButtonAction(ActionEvent event) {
 		// actiontarget.setText("Sign in button pressed");
 
@@ -84,6 +102,7 @@ public class InterfaceController {
 		// System.out.println("Member Submit button pressed");
 	}
 
+	@FXML
 	protected void handleLabelClickListener(MouseEvent event) {
 		Parent root;
 		String clickedLabel = ((Label) event.getSource()).getId();
@@ -110,6 +129,16 @@ public class InterfaceController {
 			 * } catch (IOException e) { // TODO Auto-generated catch block
 			 * e.printStackTrace(); }
 			 */
+			try {
+				mainContent.getChildren().clear();
+				MemberUi memberUi = new MemberUi();
+				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+				mainContent.getChildren().add(root2);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		case "member":

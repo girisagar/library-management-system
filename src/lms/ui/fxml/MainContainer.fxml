@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="lms.ui.InterfaceController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <MenuBar prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Exit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <BorderPane prefHeight="575.9998779296875" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+      <center>
+        <AnchorPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0" />
+      </center>
+      <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="left">
+          <children>
+            <FlowPane minWidth="175.0" orientation="VERTICAL" prefHeight="504.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <Label id="author" fx:id="labelAuthor" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Authors" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                  <font>
+                    <Font size="24.0" fx:id="x1" />
+                  </font>
+                  <FlowPane.margin>
+                    <Insets left="10.0" fx:id="x2" />
+                  </FlowPane.margin>
+                </Label>
+                <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
+                  <FlowPane.margin>
+                    <Insets left="5.0" right="5.0" fx:id="x3" />
+                  </FlowPane.margin>
+                </Separator>
+                <Label id="book" fx:id="labelBook" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
+                <Separator prefWidth="180.0" FlowPane.margin="$x3" />
+                <Label id="member" fx:id="labelMember" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
+                <Separator prefWidth="180.0" FlowPane.margin="$x3" />
+              </children>
+              <padding>
+                <Insets />
+              </padding>
+            </FlowPane>
+          </children>
+          <stylesheets>
+            <URL value="@../stylesheets/maincontainer.css" />
+          </stylesheets>
+        </AnchorPane>
+      </left>
+      <top>
+        <AnchorPane prefHeight="72.0" prefWidth="800.0">
+          <children>
+            <AnchorPane prefHeight="72.0" prefWidth="600.0" styleClass="header-right" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <stylesheets>
+                <URL value="@../stylesheets/maincontainer.css" />
+              </stylesheets>
+            </AnchorPane>
+            <AnchorPane prefHeight="72.0" prefWidth="200.0" styleClass="header-logo" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <Label font="$x1" layoutX="33.0" layoutY="20.0" text="Project Logo" textFill="#dfdfdf" />
+              </children>
+              <stylesheets>
+                <URL value="@../stylesheets/maincontainer.css" />
+              </stylesheets>
+            </AnchorPane>
+          </children>
+        </AnchorPane>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

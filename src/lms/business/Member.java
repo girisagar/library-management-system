@@ -4,12 +4,12 @@ public class Member {
 
 	private String firstName;
 	private String lastName;
-
+	private String email;
 	private String state;
 	private String city;
 	private String phone;
 
-	public Member(String firstName, String lastName, String state, String city,
+	public Member(String firstName, String lastName, String email, String state, String city,
 			String phone) {
 		super();
 		this.firstName = firstName;
@@ -17,6 +17,7 @@ public class Member {
 		this.state = state;
 		this.city = city;
 		this.phone = phone;
+		this.email = email;
 	}
 
 	public String getFirstName() {
@@ -58,5 +59,12 @@ public class Member {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
