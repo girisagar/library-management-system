@@ -27,8 +27,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import lms.business.LoginException;
-import lms.business.Member;
+import lms.business.LibraryMember;
 import lms.business.SystemController;
 import lms.business.rulsets.RuleSetFactory;
 import lms.dataaccess.TestData;
@@ -121,9 +122,36 @@ public class InterfaceController {
 			break;
 
 		case "book":
+			mainContent.getChildren().clear();
+			Label bookMessage = new Label();
+			HBox bookHBox = new HBox();
+			bookHBox.getChildren().add(bookMessage);
+			mainContent.getChildren().add(bookHBox);
 			/*
 			 * try { mainContent.getChildren().clear(); root =
 			 * FXMLLoader.load(getClass().getResource("fxml/Book.fxml"));
+			 * mainContent.getChildren().add(root);
+			 * 
+			 * } catch (IOException e) { // TODO Auto-generated catch block
+			 * e.printStackTrace(); }
+			 */
+//			try {
+//				mainContent.getChildren().clear();
+//				MemberUi memberUi = new MemberUi();
+//				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+//				mainContent.getChildren().add(root2);
+//
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			break;
+
+		case "member":
+
+			/*
+			 * try { mainContent.getChildren().clear(); root =
+			 * FXMLLoader.load(getClass().getResource("fxml/Member.fxml"));
 			 * mainContent.getChildren().add(root);
 			 * 
 			 * } catch (IOException e) { // TODO Auto-generated catch block
@@ -139,18 +167,6 @@ public class InterfaceController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			break;
-
-		case "member":
-
-			/*
-			 * try { mainContent.getChildren().clear(); root =
-			 * FXMLLoader.load(getClass().getResource("fxml/Member.fxml"));
-			 * mainContent.getChildren().add(root);
-			 * 
-			 * } catch (IOException e) { // TODO Auto-generated catch block
-			 * e.printStackTrace(); }
-			 */
 			break;
 
 		default:

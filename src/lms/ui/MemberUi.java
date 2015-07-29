@@ -16,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import lms.business.Member;
+import lms.business.LibraryMember;
 import lms.dataaccess.TestData;
 
 public class MemberUi {
@@ -39,44 +39,44 @@ public class MemberUi {
 	 * Application.launch(MemberUi.class, args); }
 	 */
 
-	private TableView<Member> table = new TableView<Member>();
+	private TableView<LibraryMember> table = new TableView<LibraryMember>();
 	TestData testData = new TestData();
 	
-	private final ObservableList<Member> data = FXCollections.observableArrayList(testData.getAllMembers());
+	private final ObservableList<LibraryMember> data = FXCollections.observableArrayList(testData.getAllMembers());
 
-	public TableView<Member> getMemberTableView() {
+	public TableView<LibraryMember> getMemberTableView() {
 
 //		table.setEditable(true);
 
 		TableColumn firstNameCol = new TableColumn("First Name");
 		firstNameCol.setMinWidth(100);
 		firstNameCol
-				.setCellValueFactory(new PropertyValueFactory<Member, String>(
+				.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 						"firstName"));
 
 		TableColumn lastNameCol = new TableColumn("Last Name");
 		lastNameCol.setMinWidth(100);
 		lastNameCol
-				.setCellValueFactory(new PropertyValueFactory<Member, String>(
+				.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 						"lastName"));
 
 		TableColumn emailCol = new TableColumn("Email");
 		emailCol.setMinWidth(200);
-		emailCol.setCellValueFactory(new PropertyValueFactory<Member, String>(
+		emailCol.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 				"email"));
 
 		TableColumn state = new TableColumn("State");
 		state.setMinWidth(100);
-		state.setCellValueFactory(new PropertyValueFactory<Member, String>(
+		state.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 				"state"));
 
 		TableColumn phone = new TableColumn("Phone");
 		phone.setMinWidth(100);
-		phone.setCellValueFactory(new PropertyValueFactory<Member, String>(
+		phone.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 				"phone"));
 		TableColumn city = new TableColumn("City");
 		city.setMinWidth(100);
-		city.setCellValueFactory(new PropertyValueFactory<Member, String>(
+		city.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>(
 				"city"));
 
 		table.setItems(data);
@@ -105,23 +105,23 @@ public class MemberUi {
 		phoneField.setMaxWidth(phone.getPrefWidth());
 		phoneField.setPromptText("phone");
 
-		final Button addButton = new Button("Add");
-		addButton.setOnAction(evt -> {
-				data.add(new Member(addFirstName.getText(), addLastName
-						.getText(), addEmail.getText(), stateField.getText(),
-						cityField.getText(), phoneField.getText()));
-				
-				addFirstName.clear();
-				addLastName.clear();
-				addEmail.clear();
-				stateField.clear();
-				cityField.clear();
-				phoneField.clear();
-		});
-
-		hb.getChildren().addAll(addFirstName, addLastName, addEmail,
-				stateField, cityField, phoneField, addButton);
-		hb.setSpacing(5);
+//		final Button addButton = new Button("Add");
+//		addButton.setOnAction(evt -> {
+//				data.add(new LibraryMember(addFirstName.getText(), addLastName
+//						.getText(), addEmail.getText(), stateField.getText(),
+//						cityField.getText(), phoneField.getText()));
+//				
+//				addFirstName.clear();
+//				addLastName.clear();
+//				addEmail.clear();
+//				stateField.clear();
+//				cityField.clear();
+//				phoneField.clear();
+//		});
+//
+//		hb.getChildren().addAll(addFirstName, addLastName, addEmail,
+//				stateField, cityField, phoneField, addButton);
+//		hb.setSpacing(5);
 		
 //		hb.setBorder(BorderFactory.createLineBorder(Color.RED));
 		hb.setPadding(new Insets(5,5,5,5));

@@ -14,34 +14,40 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lms.business.Member;
+import lms.business.Address;
+import lms.business.LibraryMember;
 import lms.dataaccess.TestData;
-import lms.dataaccess.User;
 
 public class MemberTableController implements Initializable {
-	@FXML private TableView<Member> memberListTableView;
-	
-    @FXML private TableColumn<Member, String> firstName;
-    @FXML private TableColumn<Member, String> lastName;
-    @FXML private TableColumn<Member, String> email;
-    @FXML private TableColumn<Member, String> state;
-    @FXML private TableColumn<Member, String> city;
-    @FXML private TableColumn<Member, String> phone;
+	@FXML private TableView<LibraryMember> memberListTableView;
+	@FXML private TableColumn<LibraryMember, String> memberId;
+    @FXML private TableColumn<LibraryMember, String> firstName;
+    @FXML private TableColumn<LibraryMember, String> lastName;
+    @FXML private TableColumn<LibraryMember, String> email;
+    @FXML private TableColumn<LibraryMember, String> phone;
+    @FXML private TableColumn<LibraryMember, String> street;
+    @FXML private TableColumn<LibraryMember, String> city;
+    @FXML private TableColumn<LibraryMember, String> state;
+    @FXML private TableColumn<LibraryMember, String> zip;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        firstName.setCellValueFactory(new PropertyValueFactory<Member, String>("First Name"));
-        lastName.setCellValueFactory(new PropertyValueFactory<Member, String>("Last Name"));
-        email.setCellValueFactory(new PropertyValueFactory<Member, String>("Email"));
-        state.setCellValueFactory(new PropertyValueFactory<Member, String>("State"));
-        city.setCellValueFactory(new PropertyValueFactory<Member, String>("City"));
-        phone.setCellValueFactory(new PropertyValueFactory<Member, String>("Phone"));
-
-        memberListTableView.getItems().addAll(FXCollections.observableArrayList(parseUserList()));
+    	memberId.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("memberId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("lastName"));
+        email.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Email"));
+        phone.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Phone"));
+        street.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Street"));
+        city.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("City"));
+        state.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("State"));
+        zip.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Zip"));
+        
+        memberListTableView.setItems((FXCollections.observableArrayList(parseMemberList())));
     }
-    private List<Member> parseUserList(){
+    private List<LibraryMember> parseMemberList(){
        TestData td = new TestData();
-       return td.getAllMembers();       
+       return td.getAllMembers();
     }	
     
 	@FXML

@@ -5,18 +5,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="lms.ui.MemberTableController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" 
+xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="lms.ui.MemberTableController">
   <children>
-    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="800.0">
       <center>
-        <TableView fx:id="memberListTableView" prefHeight="349.0" prefWidth="453.0">
+        <TableView fx:id="memberListTableView" >
           <columns>
-            <TableColumn id="firstName" prefWidth="75.0" text="First Name" fx:id="firstName" />
+          	<TableColumn prefWidth="75.0" text="Member Id" fx:id="memberId" />
+            <TableColumn prefWidth="75.0" text="First Name" fx:id="firstName" />
             <TableColumn prefWidth="75.0" text="Last Name" fx:id="lastName" />
-            <TableColumn prefWidth="75.0" text="Email" fx:id="email" />
-            <TableColumn prefWidth="75.0" text="State" fx:id="state" />
-            <TableColumn prefWidth="75.0" text="City" fx:id="city" />
+            <TableColumn prefWidth="175.0" text="Email" fx:id="email" />
             <TableColumn prefWidth="75.0" text="Phone" fx:id="phone" />
+            <TableColumn prefWidth="75.0" text="Street" fx:id="street" />
+            <TableColumn prefWidth="75.0" text="City" fx:id="city" />            
+            <TableColumn prefWidth="75.0" text="State" fx:id="state" />
+            <TableColumn prefWidth="75.0" text="Zip" fx:id="zip" />
           </columns>
         </TableView>
       </center>
