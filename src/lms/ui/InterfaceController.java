@@ -44,7 +44,8 @@ public class InterfaceController {
 		
 		//System.out.println("Member Submit button pressed");
 	}
-
+	
+	@FXML
 	protected void handleLabelClickListener(MouseEvent event) {
 		Parent root;
 		String clickedLabel = ((Label) event.getSource()).getId();
@@ -63,15 +64,15 @@ public class InterfaceController {
 			break;
 
 		case "book":
-			/*try {
+			try {
 				mainContent.getChildren().clear();
-				root = FXMLLoader.load(getClass().getResource("fxml/Book.fxml"));
+				root = FXMLLoader.load(getClass().getResource("fxml/Memberfx.fxml"));
 				mainContent.getChildren().add(root);
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
 			break;
 			
 		case "member":
