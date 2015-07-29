@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class MemberUi extends Application {
+public class MemberUi {
 	final HBox hb = new HBox();
 	/*
 	 * @Override public void start(Stage primaryStage) throws Exception { try {
@@ -55,16 +55,15 @@ public class MemberUi extends Application {
 							"michael.brown@example.com", "iowa", "453535",
 							"fairfield"));
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+//	public static void main(String[] args) {
+//		launch(args);
+//	}
 
-	@Override
-	public void start(Stage stage) {
-		Scene scene = new Scene(new Group());
-		stage.setTitle("List of members");
-		stage.setWidth(800);
-		stage.setHeight(525);
+	public TableView<Member> getMemberTableView() {
+//		Scene scene = new Scene(new Group());
+//		stage.setTitle("List of members");
+//		stage.setWidth(800);
+//		stage.setHeight(525);
 
 		final Label label = new Label("List of members");
 		label.setFont(new Font("Arial", 20));
@@ -106,53 +105,56 @@ public class MemberUi extends Application {
 		table.getColumns().addAll(firstNameCol, lastNameCol, emailCol, state,
 				city, phone);
 
-		final TextField addFirstName = new TextField();
-		addFirstName.setPromptText("First Name");
-		addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
-		final TextField addLastName = new TextField();
-		addLastName.setMaxWidth(lastNameCol.getPrefWidth());
-		addLastName.setPromptText("Last Name");
-		final TextField addEmail = new TextField();
-		addEmail.setMaxWidth(emailCol.getPrefWidth());
-		addEmail.setPromptText("Email");
-		final TextField stateField = new TextField();
-		stateField.setMaxWidth(state.getPrefWidth());
-		stateField.setPromptText("State");
-		final TextField cityField = new TextField();
-		cityField.setMaxWidth(city.getPrefWidth());
-		cityField.setPromptText("city");
-		final TextField phoneField = new TextField();
-		phoneField.setMaxWidth(phone.getPrefWidth());
-		phoneField.setPromptText("phone");
+		return table;
+		
+//		final TextField addFirstName = new TextField();
+//		addFirstName.setPromptText("First Name");
+//		addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+//		final TextField addLastName = new TextField();
+//		addLastName.setMaxWidth(lastNameCol.getPrefWidth());
+//		addLastName.setPromptText("Last Name");
+//		final TextField addEmail = new TextField();
+//		addEmail.setMaxWidth(emailCol.getPrefWidth());
+//		addEmail.setPromptText("Email");
+//		final TextField stateField = new TextField();
+//		stateField.setMaxWidth(state.getPrefWidth());
+//		stateField.setPromptText("State");
+//		final TextField cityField = new TextField();
+//		cityField.setMaxWidth(city.getPrefWidth());
+//		cityField.setPromptText("city");
+//		final TextField phoneField = new TextField();
+//		phoneField.setMaxWidth(phone.getPrefWidth());
+//		phoneField.setPromptText("phone");
+//
+//		final Button addButton = new Button("Add");
+//		addButton.setOnAction(new EventHandler<ActionEvent>() {
+//			@Override
+//			public void handle(ActionEvent e) {
+//				data.add(new Member(addFirstName.getText(), addLastName
+//						.getText(), addEmail.getText(), stateField.getText(),
+//						cityField.getText(), phoneField.getText()));
+//				addFirstName.clear();
+//				addLastName.clear();
+//				addEmail.clear();
+//				stateField.clear();
+//				cityField.clear();
+//				phoneField.clear();
+//			}
+//		});
+//
+//		hb.getChildren().addAll(addFirstName, addLastName, addEmail,
+//				stateField, cityField, phoneField, addButton);
+//		hb.setSpacing(3);
+//		final VBox vbox = new VBox();
+//        vbox.setSpacing(5);
+//        vbox.setPadding(new Insets(10, 0, 0, 10));
+//        vbox.getChildren().addAll(label, table, hb);
 
-		final Button addButton = new Button("Add");
-		addButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				data.add(new Member(addFirstName.getText(), addLastName
-						.getText(), addEmail.getText(), stateField.getText(),
-						cityField.getText(), phoneField.getText()));
-				addFirstName.clear();
-				addLastName.clear();
-				addEmail.clear();
-				stateField.clear();
-				cityField.clear();
-				phoneField.clear();
-			}
-		});
-
-		hb.getChildren().addAll(addFirstName, addLastName, addEmail,
-				stateField, cityField, phoneField, addButton);
-		hb.setSpacing(3);
-		final VBox vbox = new VBox();
-        vbox.setSpacing(5);
-        vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(label, table, hb);
-
-		((Group) scene.getRoot()).getChildren().addAll(vbox);
-
-		stage.setScene(scene);
-		stage.show();
+        
+//		((Group) scene.getRoot()).getChildren().addAll(vbox);
+//
+//		stage.setScene(scene);
+//		stage.show();
 	}
 
 	public static class Member {
