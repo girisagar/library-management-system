@@ -122,11 +122,11 @@ public class InterfaceController {
 			break;
 
 		case "book":
-			mainContent.getChildren().clear();
-			Label bookMessage = new Label();
-			HBox bookHBox = new HBox();
-			bookHBox.getChildren().add(bookMessage);
-			mainContent.getChildren().add(bookHBox);
+//			mainContent.getChildren().clear();
+//			Label bookMessage = new Label();
+//			HBox bookHBox = new HBox();
+//			bookHBox.getChildren().add(bookMessage);
+//			mainContent.getChildren().add(bookHBox);
 			/*
 			 * try { mainContent.getChildren().clear(); root =
 			 * FXMLLoader.load(getClass().getResource("fxml/Book.fxml"));
@@ -145,7 +145,18 @@ public class InterfaceController {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}
-			break;
+			try {
+				mainContent.getChildren().clear();
+				BookUi memberUi = new BookUi();
+				 root = FXMLLoader.load(getClass().getResource("fxml/BookList.fxml"));
+				mainContent.getChildren().add(root);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		break;
 
 		case "member":
 
