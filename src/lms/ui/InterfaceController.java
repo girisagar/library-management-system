@@ -1,41 +1,35 @@
 package lms.ui;
 
 import java.io.IOException;
-import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXML;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
 import javafx.scene.layout.GridPane;
 import lms.business.LoginException;
-import lms.business.Member;
 import lms.business.SystemController;
 import lms.business.rulsets.RuleSetFactory;
-import lms.dataaccess.TestData;
 
 public class InterfaceController {
 
 	@FXML
 	private AnchorPane mainContent;
+	@FXML
+	private BorderPane mainBorder;
 
 	private SystemController controller;
 	@FXML
@@ -44,8 +38,9 @@ public class InterfaceController {
 	private PasswordField passwordField;
 	@FXML
 	private GridPane loginPane;
-//	@FXML private memberListTableView;
-	
+
+	// @FXML private memberListTableView;
+
 	@FXML
 	protected void handleLoginSubmitButtonAction(ActionEvent event) {
 		controller = new SystemController();
@@ -57,7 +52,8 @@ public class InterfaceController {
 			// loginRules.applyRules(loginForm);
 
 			try {
-				controller.login(userName.getText().toString(), passwordField.getText().toString());
+				controller.login(userName.getText().toString(), passwordField
+						.getText().toString());
 				if (controller.currentAuth != null) {
 					System.out.println(controller.currentAuth);
 				}
@@ -111,8 +107,10 @@ public class InterfaceController {
 		case "author":
 			try {
 				mainContent.getChildren().clear();
-				root = FXMLLoader.load(getClass().getResource("fxml/Login.fxml"));
+				root = FXMLLoader.load(getClass()
+						.getResource("fxml/Login.fxml"));
 				mainContent.getChildren().add(root);
+				// mainBorder.setCenter(root);
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -121,6 +119,11 @@ public class InterfaceController {
 			break;
 
 		case "book":
+			// mainContent.getChildren().clear();
+			// Label bookMessage = new Label();
+			// HBox bookHBox = new HBox();
+			// bookHBox.getChildren().add(bookMessage);
+			// mainContent.getChildren().add(bookHBox);
 			/*
 			 * try { mainContent.getChildren().clear(); root =
 			 * FXMLLoader.load(getClass().getResource("fxml/Book.fxml"));
@@ -129,17 +132,29 @@ public class InterfaceController {
 			 * } catch (IOException e) { // TODO Auto-generated catch block
 			 * e.printStackTrace(); }
 			 */
+			// try {
+			// mainContent.getChildren().clear();
+			// MemberUi memberUi = new MemberUi();
+			// Parent root2 =
+			// FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+			// mainContent.getChildren().add(root2);
+			//
+			// } catch (Exception e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
 			try {
 				mainContent.getChildren().clear();
 				BookUi memberUi = new BookUi();
-				 root = FXMLLoader.load(getClass().getResource("fxml/BookList.fxml"));
+				root = FXMLLoader.load(getClass().getResource(
+						"fxml/BookList.fxml"));
 				mainContent.getChildren().add(root);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			break;
 
 		case "member":
@@ -155,7 +170,8 @@ public class InterfaceController {
 			try {
 				mainContent.getChildren().clear();
 				MemberUi memberUi = new MemberUi();
-				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+				Parent root2 = FXMLLoader.load(getClass().getResource(
+						"fxml/MemberList.fxml"));
 				mainContent.getChildren().add(root2);
 
 			} catch (Exception e) {
@@ -172,8 +188,8 @@ public class InterfaceController {
 		// System.out.println("Author clicked");
 
 	}
-	
-	public AnchorPane getMainContent(){
+
+	public AnchorPane getMainContent() {
 		return this.mainContent;
 	}
 

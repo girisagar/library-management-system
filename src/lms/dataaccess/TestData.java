@@ -35,19 +35,23 @@ public class TestData {
 	};
 
 	// @SuppressWarnings("serial")
-	private final List<Member> allMembers = new ArrayList<Member>() {
+	private final List<LibraryMember> allMembers = new ArrayList<LibraryMember>() {
 		{
-			add(new Member("Isabella", "Johnson", "isabella.johnson@example.com", "iowa", "fairfield", "453535"));
-			add(new Member("Isabella", "Johnson", "isabella.johnson@example.com", "iowa", "fairfield", "453535"));
-			add(new Member("Ethan", "Williams", "ethan.williams@example.com", "iowa", "fairfield", "453535"));
-			add(new Member("Emma", "Jones", "emma.jones@example.com", "iowa", "fairfield", "453535"));
-			add(new Member("Michael", "Brown", "michael.brown@example.com", "iowa", "fairfield", "453535"));
+			
+			add(new LibraryMember("001", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", 
+					"Street 001", "city001", "state001", "zip001"));
+			add(new LibraryMember("002", "Isabella", "Johnson", "isabella.johnson@example.com", "453535",
+					"Street 002", "city002", "state002", "zip002"));
+			add(new LibraryMember("003", "Ethan", "Williams", "ethan.williams@example.com", "453535",
+					"Street 003", "city003", "state003", "zip003"));
+			add(new LibraryMember("004", "Emma", "Jones", "emma.jones@example.com", "453535",
+					"Street 004", "city004", "state004", "zip004"));
+			add(new LibraryMember("005", "Michael", "Brown", "michael.brown@example.com", "453535",
+					"Street 005", "city005", "state005", "zip005"));
 		}
 
 	};
-	
-	
-	
+
 	// Book(int id, String isbn, String title, int maxCheckoutLength,
 	// List<Author> authors)
 	@SuppressWarnings("serial")
@@ -105,8 +109,8 @@ public class TestData {
 	public void userData() {
 		DataAccessFacade.loadUserMap(allUsers);
 	}
-	
-	public List<Member> getAllMembers(){
+
+	public List<LibraryMember> getAllMembers() {
 		return this.allMembers;
 	}
 	

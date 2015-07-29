@@ -116,7 +116,8 @@ final public class Book implements Serializable {
 	public int getMaxCheckoutLength() {
 		return maxCheckoutLength;
 	}
-	
+
+
 	public String getCopiesString() {
 		StringBuilder str = new StringBuilder();
 		for(BookCopy bc: copies){
