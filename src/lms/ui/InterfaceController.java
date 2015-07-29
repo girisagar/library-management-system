@@ -131,14 +131,15 @@ public class InterfaceController {
 			 */
 			try {
 				mainContent.getChildren().clear();
-				MemberUi memberUi = new MemberUi();
-				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
-				mainContent.getChildren().add(root2);
+				BookUi memberUi = new BookUi();
+				 root = FXMLLoader.load(getClass().getResource("fxml/BookList.fxml"));
+				mainContent.getChildren().add(root);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			break;
 
 		case "member":
@@ -151,6 +152,16 @@ public class InterfaceController {
 			 * } catch (IOException e) { // TODO Auto-generated catch block
 			 * e.printStackTrace(); }
 			 */
+			try {
+				mainContent.getChildren().clear();
+				MemberUi memberUi = new MemberUi();
+				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+				mainContent.getChildren().add(root2);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		default:
