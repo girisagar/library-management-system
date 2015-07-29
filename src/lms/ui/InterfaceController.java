@@ -1,42 +1,30 @@
 package lms.ui;
 
 import java.io.IOException;
-import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXML;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import lms.business.LoginException;
-import lms.business.Member;
 import lms.business.SystemController;
 import lms.business.rulsets.RuleSetFactory;
-import lms.dataaccess.TestData;
 
 public class InterfaceController {
 
 	@FXML
 	private AnchorPane mainContent;
+	@FXML private BorderPane mainBorder;
 
 	private SystemController controller;
 	@FXML
@@ -113,6 +101,7 @@ public class InterfaceController {
 				mainContent.getChildren().clear();
 				root = FXMLLoader.load(getClass().getResource("fxml/Login.fxml"));
 				mainContent.getChildren().add(root);
+//				mainBorder.setCenter(root);
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -130,9 +119,12 @@ public class InterfaceController {
 			 * e.printStackTrace(); }
 			 */
 			try {
+				
 				mainContent.getChildren().clear();
+				mainContent.setStyle("-fx-background-color: FF33CC;");
 				MemberUi memberUi = new MemberUi();
 				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+				
 				mainContent.getChildren().add(root2);
 
 			} catch (Exception e) {

@@ -5,24 +5,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="lms.ui.MemberTableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="lms.ui.MemberTableController">
   <children>
-    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+    <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
-        <TableView fx:id="memberListTableView" prefHeight="349.0" prefWidth="453.0">
+        <TableView fx:id="memberListTableView" prefHeight="294.0" prefWidth="600.0">
           <columns>
-            <TableColumn id="firstName" prefWidth="75.0" text="First Name" fx:id="firstName" />
+            <TableColumn prefWidth="75.0" text="First Name" fx:id="firstName" />
             <TableColumn prefWidth="75.0" text="Last Name" fx:id="lastName" />
-            <TableColumn prefWidth="75.0" text="Email" fx:id="email" />
-            <TableColumn prefWidth="75.0" text="State" fx:id="state" />
-            <TableColumn prefWidth="75.0" text="City" fx:id="city" />
-            <TableColumn prefWidth="75.0" text="Phone" fx:id="phone" />
+            <TableColumn prefWidth="157.0" text="Email" fx:id="email" />
+            <TableColumn prefWidth="60.0" text="State" fx:id="state" />
+            <TableColumn prefWidth="158.0" text="City" fx:id="city" />
+            <TableColumn prefWidth="74.0" text="Phone" fx:id="phone" />
           </columns>
         </TableView>
       </center>
-      <top>
-        <HBox prefHeight="52.0" prefWidth="600.0" />
-      </top>
     </BorderPane>
   </children>
-</Pane>
+</AnchorPane>
