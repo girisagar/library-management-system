@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import lms.business.LoginException;
 import lms.business.SystemController;
 import lms.business.rulsets.RuleSetFactory;
@@ -110,6 +109,11 @@ public class InterfaceController {
 			break;
 
 		case "book":
+//			mainContent.getChildren().clear();
+//			Label bookMessage = new Label();
+//			HBox bookHBox = new HBox();
+//			bookHBox.getChildren().add(bookMessage);
+//			mainContent.getChildren().add(bookHBox);
 			/*
 			 * try { mainContent.getChildren().clear(); root =
 			 * FXMLLoader.load(getClass().getResource("fxml/Book.fxml"));
@@ -118,20 +122,28 @@ public class InterfaceController {
 			 * } catch (IOException e) { // TODO Auto-generated catch block
 			 * e.printStackTrace(); }
 			 */
+//			try {
+//				mainContent.getChildren().clear();
+//				MemberUi memberUi = new MemberUi();
+//				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+//				mainContent.getChildren().add(root2);
+//
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			try {
-				
 				mainContent.getChildren().clear();
-				mainContent.setStyle("-fx-background-color: FF33CC;");
-				MemberUi memberUi = new MemberUi();
-				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
-				
-				mainContent.getChildren().add(root2);
+				BookUi memberUi = new BookUi();
+				 root = FXMLLoader.load(getClass().getResource("fxml/BookList.fxml"));
+				mainContent.getChildren().add(root);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			break;
+			
+		break;
 
 		case "member":
 
@@ -143,6 +155,16 @@ public class InterfaceController {
 			 * } catch (IOException e) { // TODO Auto-generated catch block
 			 * e.printStackTrace(); }
 			 */
+			try {
+				mainContent.getChildren().clear();
+				MemberUi memberUi = new MemberUi();
+				Parent root2 = FXMLLoader.load(getClass().getResource("fxml/MemberList.fxml"));
+				mainContent.getChildren().add(root2);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		default:

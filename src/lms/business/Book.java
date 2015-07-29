@@ -14,17 +14,17 @@ final public class Book implements Serializable {
 	
 	private static final long serialVersionUID = 6110690276685962829L;
 	private BookCopy[] copies;
-	private List<Author> authors;
+	private List<Author> authors;	
 	private String isbn;
 	private String title;
 	private int maxCheckoutLength;
+	
 	public Book(String isbn, String title, int maxCheckoutLength, List<Author> authors) {
 		this.isbn = isbn;
 		this.title = title;
 		this.maxCheckoutLength = maxCheckoutLength;
 		this.authors = Collections.unmodifiableList(authors);
-		copies = new BookCopy[]{new BookCopy(this, 1, true)};
-		
+		copies = new BookCopy[]{new BookCopy(this, 1, true)};		
 	}
 	
 	public void updateCopies(BookCopy copy) {
@@ -72,6 +72,7 @@ final public class Book implements Serializable {
 				     .map(l -> l.isAvailable())
 				     .reduce(false, (x,y) -> x || y);
 	}
+	
 	@Override
 	public String toString() {
 		return "isbn: " + isbn + ", maxLength: " + maxCheckoutLength + ", available: " + isAvailable();
@@ -111,12 +112,17 @@ final public class Book implements Serializable {
 		}
 		return null;
 	}
+	
 	public int getMaxCheckoutLength() {
 		return maxCheckoutLength;
 	}
 
-	
-	
-	
-	
+
+	public String getCopiesString() {
+		StringBuilder str = new StringBuilder();
+		for(BookCopy bc: copies){
+			str.append(bc.toString()+"\n");
+		}
+		return str.toString();
+	}
 }
