@@ -12,7 +12,7 @@ public class SystemController implements ControllerInterface {
 	
 	public void login(String id, String password) throws LoginException {
 		DataAccess da = new DataAccessFacade();
-		HashMap<String, User> map = da.readUserMap();
+		HashMap<String, User> map = da.readUserMap();		
 		if(!map.containsKey(id)) {
 			throw new LoginException("ID " + id + " not found");
 		}
@@ -22,6 +22,7 @@ public class SystemController implements ControllerInterface {
 		}
 		currentAuth = map.get(id).getAuthorization();		
 	}
+	
 	/**
 	 * This method checks if memberId already exists -- if so, it cannot be
 	 * added as a new member, and an exception is thrown.

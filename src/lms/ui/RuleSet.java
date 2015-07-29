@@ -1,9 +1,10 @@
 package lms.ui;
 
-import java.awt.Component;
+//import java.awt.Component;
 
+import javafx.application.Application;
 import lms.business.rulsets.RuleException;
 
 public interface RuleSet {
-	public void applyRules(Component ob) throws RuleException;
+	public void applyRules(Application ob) throws RuleException;
 }

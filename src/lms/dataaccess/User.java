@@ -28,6 +28,5 @@ final public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "[" + id + ":" + password + ", " + authorization.toString() + "]";
-	}
-	
+	}	
 }
