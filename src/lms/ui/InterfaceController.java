@@ -25,7 +25,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import lms.business.LoginException;
 import lms.business.Member;
@@ -46,6 +45,7 @@ public class InterfaceController {
 	@FXML
 	private GridPane loginPane;
 //	@FXML private memberListTableView;
+	
 	@FXML
 	protected void handleLoginSubmitButtonAction(ActionEvent event) {
 		controller = new SystemController();
@@ -171,6 +171,10 @@ public class InterfaceController {
 		// // actiontarget.setText("Sign in button pressed");
 		// System.out.println("Author clicked");
 
+	}
+	
+	public AnchorPane getMainContent(){
+		return this.mainContent;
 	}
 
 }

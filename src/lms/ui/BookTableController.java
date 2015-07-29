@@ -1,27 +1,30 @@
 package lms.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lms.business.Author;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import lms.business.Book;
-import lms.business.BookCopy;
-import lms.business.Member;
 import lms.dataaccess.DataAccessFacade;
-import lms.dataaccess.TestData;
 
-public class BookTableController implements Initializable{
+public class BookTableController extends InterfaceController implements Initializable{
 	@FXML
 	private TableView<Book> bookListTableView;
+	
+	@FXML private AnchorPane bookListConentainer;
 
 	@FXML
 	private TableColumn<Book, String> bookTitle;
@@ -62,6 +65,17 @@ public class BookTableController implements Initializable{
 
 	@FXML
 	protected void handleAddBookClickListener(ActionEvent event) {
+		Parent root;
+		try {
+//			InterfaceController controller = new InterfaceController();
+			bookListConentainer.getChildren().clear();
+			root = FXMLLoader.load(getClass().getResource("fxml/AddBook.fxml"));
+//			System.out.println(super.getMainContent());
+			bookListConentainer.getChildren().add(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }
