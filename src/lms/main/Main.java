@@ -6,5 +6,7 @@ import lms.ui.LoginForm;
 public class Main {
 	public static void main(String[] args) {
 		Application.launch(LoginForm.class);
+//		Application.launch(LoginForm.class);
+	//	Application.launch(MainContainer.class);
 	}
 }
