@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.ui.MemberTableController">
-  <children>
-    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <center>
-        <TableView fx:id="memberListTableView">
-          <columns>
-          	<TableColumn fx:id="memberId" prefWidth="75.0" text="Member Id" />
-            <TableColumn fx:id="firstName" prefWidth="75.0" text="First Name" />
-            <TableColumn fx:id="lastName" prefWidth="75.0" text="Last Name" />
-            <TableColumn fx:id="email" prefWidth="175.0" text="Email" />
-            <TableColumn fx:id="phone" prefWidth="75.0" text="Phone" />
-            <TableColumn fx:id="street" prefWidth="75.0" text="Street" />
-            <TableColumn fx:id="city" prefWidth="75.0" text="City" />            
-            <TableColumn fx:id="state" prefWidth="75.0" text="State" />
-            <TableColumn fx:id="zip" prefWidth="75.0" text="Zip" />
-          </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-        </TableView>
-      </center>
-    </BorderPane>
-  </children>
-</AnchorPane>
+<Pane id="memberListConentainer" maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="lms.ui.MemberTableController">
+	<children>
+		<BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0"
+			prefWidth="600.0">
+			<left>
+				<VBox prefHeight="400.0" prefWidth="600.0"
+					BorderPane.alignment="CENTER">
+					<children>
+						<HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="600.0">
+							<children>
+								<Button mnemonicParsing="false" onAction="#handleAddMemberClickListener"
+									text="Add Member">
+									<cursor>
+										<Cursor fx:constant="DEFAULT" />
+									</cursor>
+								</Button>
+							</children>
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<effect>
+								<DropShadow color="#27e44d" height="38.79" radius="22.6025"
+									width="53.62" />
+							</effect>
+							<cursor>
+								<Cursor fx:constant="DEFAULT" />
+							</cursor>
+						</HBox>
+						<TableView fx:id="memberListTableView">
+							<columns>
+								<TableColumn fx:id="memberId" prefWidth="75.0" text="Member Id" />
+								<TableColumn fx:id="firstName" prefWidth="75.0"
+									text="First Name" />
+								<TableColumn fx:id="lastName" prefWidth="75.0" text="Last Name" />
+								<TableColumn fx:id="email" prefWidth="175.0" text="Email" />
+								<TableColumn fx:id="phone" prefWidth="75.0" text="Phone" />
+								<TableColumn fx:id="street" prefWidth="75.0" text="Street" />
+								<TableColumn fx:id="city" prefWidth="75.0" text="City" />
+								<TableColumn fx:id="state" prefWidth="75.0" text="State" />
+								<TableColumn fx:id="zip" prefWidth="75.0" text="Zip" />
+							</columns>
+							<columnResizePolicy>
+								<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+							</columnResizePolicy>
+						</TableView>
+					</children>
+					<BorderPane.margin>
+						<Insets right="20.0" />
+					</BorderPane.margin>
+				</VBox>
+			</left>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+			<right>
+				<BorderPane prefHeight="200.0" prefWidth="200.0"
+					BorderPane.alignment="CENTER">
+					<top>
+						<HBox prefHeight="52.0" prefWidth="200.0"
+							BorderPane.alignment="CENTER" />
+					</top>
+					<center>
+						<AnchorPane fx:id="addFormContent" prefHeight="200.0"
+							prefWidth="200.0" BorderPane.alignment="CENTER">
+							<padding>
+								<Insets bottom="10.0" right="10.0" top="10.0" />
+							</padding>
+						</AnchorPane>
+					</center>
+				</BorderPane>
+			</right>
+		</BorderPane>
+	</children>
+</Pane>

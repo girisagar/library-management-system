@@ -9,8 +9,8 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
+import lms.business.Author;
 import lms.business.Book;
-import lms.business.BookCopy;
 
 
 
@@ -19,11 +19,11 @@ import lms.business.BookCopy;
 public class DataAccessFacade implements DataAccess {
 	
 	enum StorageType {
-		BOOKS, MEMBERS, USERS;
+		BOOKS, MEMBERS, USERS, AUTHORS;
 	}
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
-			+ "\\src\\lms\\dataaccess\\storage";
+			+ "/src/lms/dataaccess/storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
 
@@ -37,6 +37,12 @@ public class DataAccessFacade implements DataAccess {
 		HashMap<String,Book> booksMap =  readBooksMap();
 		Book b = booksMap.get(isbn);
 		return b;
+	}
+	
+
+	public boolean isBookExists(String isbn) {
+		HashMap<String,Book> booksMap =  readBooksMap();
+		return booksMap.containsKey(isbn);
 	}
 	
 	public Auth login(String id, String pwd) {
@@ -62,8 +68,7 @@ public class DataAccessFacade implements DataAccess {
 		String isbn = book.getIsbn();
 		bookMap.put(isbn, book);
 		saveToStorage(StorageType.BOOKS, bookMap);	
-	}
-	
+	}	
 
 	
 	//////read methods that return full maps
@@ -94,6 +99,8 @@ public class DataAccessFacade implements DataAccess {
 		bookList.forEach(book -> books.put(book.getIsbn(), book));
 		saveToStorage(StorageType.BOOKS, books);
 	}
+	
+	
 	static void loadUserMap(List<User> userList) {
 		HashMap<String, User> users = new HashMap<String, User>();
 		userList.forEach(user -> users.put(user.getId(), user));

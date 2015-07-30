@@ -1,5 +1,6 @@
 package lms.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -7,16 +8,27 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+
 import lms.business.Book;
 import lms.dataaccess.DataAccessFacade;
+
 
 public class BookTableController implements Initializable {
 	@FXML
 	private TableView<Book> bookListTableView;
+
+	@FXML
+	private AnchorPane addFormContent;
 
 	@FXML
 	private TableColumn<Book, String> bookTitle;
@@ -44,12 +56,24 @@ public class BookTableController implements Initializable {
 		// TestData td = new TestData();
 		DataAccessFacade daf = new DataAccessFacade();
 
-		System.out.println(daf.readBooksMap().values());
+//		System.out.println(daf.readBooksMap().values());
 		return daf.readBooksMap().values();
 	}
 
 	@FXML
 	protected void handleAddBookClickListener(ActionEvent event) {
+		Parent root;
+		try {
+			// InterfaceController controller = new InterfaceController();
+			addFormContent.getChildren().clear();
+			root = FXMLLoader.load(getClass().getResource("fxml/AddBook.fxml"));
+			addFormContent.setStyle("-fx-background-color: white;");
+			// System.out.println(super.getMainContent());
+			addFormContent.getChildren().add(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }
