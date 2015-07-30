@@ -23,7 +23,7 @@ public class DataAccessFacade implements DataAccess {
 	}
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
-			+ "\\src\\lms\\dataaccess\\storage";
+			+ "/src/lms/dataaccess/storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
 
@@ -37,6 +37,12 @@ public class DataAccessFacade implements DataAccess {
 		HashMap<String,Book> booksMap =  readBooksMap();
 		Book b = booksMap.get(isbn);
 		return b;
+	}
+	
+
+	public boolean isBookExists(String isbn) {
+		HashMap<String,Book> booksMap =  readBooksMap();
+		return booksMap.containsKey(isbn);
 	}
 	
 	public Auth login(String id, String pwd) {

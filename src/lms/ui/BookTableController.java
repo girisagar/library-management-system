@@ -62,7 +62,7 @@ public class BookTableController implements
 		// TestData td = new TestData();
 		DataAccessFacade daf = new DataAccessFacade();
 
-		System.out.println(daf.readBooksMap().values());
+//		System.out.println(daf.readBooksMap().values());
 		return daf.readBooksMap().values();
 	}
 

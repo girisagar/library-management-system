@@ -1,6 +1,8 @@
 package lms.business;
 
+
 import java.util.HashMap;
+import java.util.List;
 
 import lms.dataaccess.Auth;
 import lms.dataaccess.DataAccess;
@@ -22,6 +24,7 @@ public class SystemController implements ControllerInterface {
 		}
 		currentAuth = map.get(id).getAuthorization();		
 	}
+
 	
 	/**
 	 * This method checks if memberId already exists -- if so, it cannot be
@@ -70,8 +73,15 @@ public class SystemController implements ControllerInterface {
 	 * Looks up book by isbn to see if it exists, throw exceptioni.
 	 * Else add the book to storage
 	 */
-//	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) 
-//			throws LibrarySystemException {
+	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) {		
+			DataAccess da = new DataAccessFacade();
+			try{
+				da.searchBook(isbn);
+			}
+			throw new LibrarySystemException ("book with isbn already esists");
+			return false;
+	}
+			
 		
 	
 	public boolean addBookCopy(String isbn) throws LibrarySystemException {

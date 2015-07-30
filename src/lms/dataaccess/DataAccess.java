@@ -11,8 +11,6 @@ import lms.business.Book;
 public interface DataAccess {
 	//public LibraryMember searchMember(String memberId);
 	public Book searchBook(String isbn);
-	
-	
 	///////save methods
 	//public void saveNewMember(LibraryMember member);
 	//public void updateMember(LibraryMember member);
