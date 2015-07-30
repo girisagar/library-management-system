@@ -33,8 +33,19 @@ public class SystemController implements ControllerInterface {
 	 * input data and uses DataAccess to store it.
 	 * 
 	 */
-//	public void addNewMember(String memberId, String firstName, String lastName,
-//			String telNumber, Address addr) throws LibrarySystemException {
+	public boolean addNewMember(String memberId, String firstName, String lastName, String email, String phone, 
+			String street, String city, String state, String zip) throws LibrarySystemException {
+		
+		LibraryMember member = new LibraryMember(memberId, firstName, lastName, email, phone, street, city, state, zip);
+		
+		DataAccess da = new DataAccessFacade();
+		
+		if(!da.isMemberExist(member)) {
+			da.saveNewMember(member);
+			return true;
+		}
+		throw new LibrarySystemException("Member already existed");
+	}
 		
 	
 	/**
@@ -67,7 +78,7 @@ public class SystemController implements ControllerInterface {
 	}
 	
 	/**
-	 * Looks up book by isbn to see if it exists, throw exceptioni.
+	 * Looks up book by isbn to see if it exists, throw exceptionion.
 	 * Else add the book to storage
 	 */
 	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors){		

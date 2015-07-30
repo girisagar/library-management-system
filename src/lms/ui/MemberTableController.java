@@ -2,6 +2,7 @@ package lms.ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -16,7 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lms.business.LibraryMember;
-import lms.dataaccess.TestData;
+import lms.dataaccess.DataAccess;
+import lms.dataaccess.DataAccessFacade;
 
 public class MemberTableController implements Initializable {
 	@FXML
@@ -42,9 +44,14 @@ public class MemberTableController implements Initializable {
 
 	@FXML
 	private AnchorPane addFormContent;
+	
+	private static TableView<LibraryMember> memberTable;
+	
+	private static AnchorPane addContent;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		memberTable = memberListTableView;
 		memberId.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("memberId"));
 		firstName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("firstName"));
 		lastName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("lastName"));
@@ -58,9 +65,9 @@ public class MemberTableController implements Initializable {
 		memberListTableView.setItems((FXCollections.observableArrayList(parseMemberList())));
 	}
 
-	private List<LibraryMember> parseMemberList() {
-		TestData td = new TestData();
-		return td.getAllMembers();
+	private Collection<LibraryMember> parseMemberList() {
+		DataAccess da = new DataAccessFacade();
+		return da.readMemberMap().values();
 	}
 
 	@FXML
@@ -74,11 +81,18 @@ public class MemberTableController implements Initializable {
 			addFormContent.setStyle("-fx-background-color: white;");
 			// System.out.println(super.getMainContent());
 			addFormContent.getChildren().add(member);
+			addContent = addFormContent;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void addNewMember(LibraryMember member) {
+		this.memberTable.getItems().add(member);
+		addContent.setStyle("");
+		addContent.getChildren().clear();
 	}
 
 	// @FXML
