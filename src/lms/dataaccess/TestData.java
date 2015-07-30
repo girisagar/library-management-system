@@ -91,9 +91,11 @@ public class TestData {
 		td.bookData();
 		// td.libraryMemberData();
 		td.userData();
+		td.memberData();
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
 		System.out.println(da.readUserMap());
+		System.out.println(da.readMemberMap());
 	}
 
 	// /create books
@@ -109,6 +111,10 @@ public class TestData {
 
 	public void userData() {
 		DataAccessFacade.loadUserMap(allUsers);
+	}
+	
+	public void memberData() {
+		DataAccessFacade.loadMemberMap(allMembers);
 	}
 
 	public List<LibraryMember> getAllMembers() {

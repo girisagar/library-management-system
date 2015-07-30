@@ -3,6 +3,7 @@ package lms.dataaccess;
 import java.util.HashMap;
 
 import lms.business.Book;
+import lms.business.LibraryMember;
 
 
 
@@ -12,7 +13,7 @@ public interface DataAccess {
 	//public LibraryMember searchMember(String memberId);
 	public Book searchBook(String isbn);
 	///////save methods
-	//public void saveNewMember(LibraryMember member);
+	public void saveNewMember(LibraryMember member);
 	//public void updateMember(LibraryMember member);
 	
 	//save new book
@@ -21,5 +22,5 @@ public interface DataAccess {
 	//////read methods 
 	public HashMap<String,Book> readBooksMap();
 	public HashMap<String,User> readUserMap();
-	//public HashMap<String, LibraryMember> readMemberMap();
+	public HashMap<String, LibraryMember> readMemberMap();
 }

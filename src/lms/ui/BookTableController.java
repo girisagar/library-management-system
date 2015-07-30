@@ -20,6 +20,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import lms.business.Book;
+import lms.dataaccess.DataAccess;
 import lms.dataaccess.DataAccessFacade;
 
 public class BookTableController implements
@@ -59,10 +60,7 @@ public class BookTableController implements
 	}
 
 	private Collection<Book> parseBookList() {
-		// TestData td = new TestData();
-		DataAccessFacade daf = new DataAccessFacade();
-
-//		System.out.println(daf.readBooksMap().values());
+		DataAccess daf = new DataAccessFacade();
 		return daf.readBooksMap().values();
 	}
 
