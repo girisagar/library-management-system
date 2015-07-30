@@ -26,6 +26,7 @@ public interface DataAccess {
 	public HashMap<String, LibraryMember> readMemberMap();
 	//check book exists or not
 	public boolean isBookExists(Book book);
+	public boolean isBookExists(String isbn);
 	
 	public boolean isMemberExist(LibraryMember member) ;
 }

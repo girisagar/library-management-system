@@ -63,13 +63,17 @@ public class SystemController implements ControllerInterface {
 	 * thrown. If no copies are available for checkout, an exception is thrown.
 	 * If found and a copy is available, member's checkout record is updated and
 	 * copy of this publication is set to "not available"
+	 * @throws LibrarySystemException 
 	 */
 	// public void checkoutBook(String memberId, String isbn) throws
 	// LibrarySystemException {
 
 	@Override
-	public Book searchBook(String isbn) {
+	public Book searchBook(String isbn) throws LibrarySystemException {
 		DataAccess da = new DataAccessFacade();
+		if(!da.isBookExists(isbn)) {
+			throw new LibrarySystemException("Book for this Isbn not available");
+		}
 		return da.searchBook(isbn);
 	}
 

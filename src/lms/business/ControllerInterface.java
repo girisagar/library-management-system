@@ -19,5 +19,5 @@ public interface ControllerInterface {
 	public boolean addBookCopy(String isbn) throws LibrarySystemException;
 //	public void printCheckoutRecord(String memberId) throws LibrarySystemException;
 //	public CopyStatus computeStatus(BookCopy copy);
-	public Book searchBook(String isbn);
+	public Book searchBook(String isbn) throws LibrarySystemException;
 }

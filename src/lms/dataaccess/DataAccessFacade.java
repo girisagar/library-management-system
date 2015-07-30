@@ -46,9 +46,16 @@ public class DataAccessFacade implements DataAccess {
 			return true;
 		}
 		return false;
-
 	}
 
+	public boolean isBookExists(String isbn){
+		HashMap<String, Book> booksMap =  readBooksMap();
+		if(booksMap.containsKey(isbn)){
+			return true;
+		}
+		return false;
+	}
+	
 	public Auth login(String id, String pwd) {
 		HashMap<String, User> userMap = readUserMap();
 		if (!userMap.containsKey(id))

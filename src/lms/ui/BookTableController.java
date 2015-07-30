@@ -11,15 +11,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-
 import lms.business.Book;
+import lms.business.LibrarySystemException;
+import lms.business.SystemController;
 import lms.dataaccess.DataAccess;
 import lms.dataaccess.DataAccessFacade;
 
@@ -43,6 +47,11 @@ public class BookTableController implements Initializable {
 	private TableColumn<Book, String> copies;
 	@FXML
 	private TableColumn<Book, Integer> maxCheckout;
+	
+	@FXML
+	private TextField textSearch;
+	
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {		
@@ -80,9 +89,26 @@ public class BookTableController implements Initializable {
 
 	}
 	
+
 	public void addNewBook(Book book){		
 		this.bookTable.getItems().add(book);
 		addContent.setStyle("");
 		addContent.getChildren().clear();
 	}
+	
+  @FXML
+    void handleBookSearchAction(ActionEvent event){
+    	String isbn = textSearch.getText().toString();
+//    	DataAccess da = new DataAccessFacade();
+    	SystemController controller = new SystemController();
+    	try {
+			Book book = controller.searchBook(isbn);
+			this.bookTable.getItems().clear();
+			this.bookTable.getItems().add(book);
+		} catch (LibrarySystemException e) {
+			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
+			alert.show();
+		}
+    }
+	
 }
