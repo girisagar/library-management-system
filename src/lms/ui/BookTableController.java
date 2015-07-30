@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lms.business.Book;
 import lms.dataaccess.DataAccessFacade;
 
-public class BookTableController implements Initializable{
+public class BookTableController implements Initializable {
 	@FXML
 	private TableView<Book> bookListTableView;
 
@@ -28,28 +28,21 @@ public class BookTableController implements Initializable{
 	private TableColumn<Book, String> copies;
 	@FXML
 	private TableColumn<Book, Integer> maxCheckout;
-	
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Title"));
-		isbn.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"isbn"));
-		author.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Authors"));
-		copies.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"NumCopies"));
-		maxCheckout.setCellValueFactory(new PropertyValueFactory<Book, Integer>(
-				"maxCheckoutLength"));
-		
-		bookListTableView.getItems().addAll(
-				FXCollections.observableArrayList(parseBookList()));
+		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>("Title"));
+		isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
+		author.setCellValueFactory(new PropertyValueFactory<Book, String>("Authors"));
+		copies.setCellValueFactory(new PropertyValueFactory<Book, String>("NumCopies"));
+		maxCheckout.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
+
+		bookListTableView.getItems().addAll(FXCollections.observableArrayList(parseBookList()));
 	}
 
 	private Collection<Book> parseBookList() {
-//		TestData td = new TestData();
-		DataAccessFacade daf = new DataAccessFacade();	
+		// TestData td = new TestData();
+		DataAccessFacade daf = new DataAccessFacade();
 
 		System.out.println(daf.readBooksMap().values());
 		return daf.readBooksMap().values();
@@ -57,6 +50,6 @@ public class BookTableController implements Initializable{
 
 	@FXML
 	protected void handleAddBookClickListener(ActionEvent event) {
-		
+
 	}
 }
