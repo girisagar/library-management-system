@@ -39,10 +39,12 @@ public class DataAccessFacade implements DataAccess {
 		return b;
 	}
 	
-
-	public boolean isBookExists(String isbn) {
-		HashMap<String,Book> booksMap =  readBooksMap();
-		return booksMap.containsKey(isbn);
+	public boolean isBookExists(Book book){
+		HashMap<String, Book> booksMap =  readBooksMap();
+		if(booksMap.containsKey(book.getIsbn())){
+			return true;
+		}
+		return false;
 	}
 	
 	public Auth login(String id, String pwd) {

@@ -13,21 +13,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Pane;
 import lms.business.Author;
 import lms.business.Book;
+import lms.business.LibrarySystemException;
 import lms.business.SystemController;
 import lms.dataaccess.TestData;
 
 public class AddBookController implements Initializable{
-
-	@FXML
-	private TableView<Book> bookListTableView;
 	
     @FXML
     private TextField textTitle;
@@ -60,6 +61,7 @@ public class AddBookController implements Initializable{
 		
 		Integer[] maxLengths = {new Integer(7), new Integer(21)};
 		comboMaxChekoutLength.setItems(FXCollections.observableArrayList(Arrays.asList(maxLengths)));
+		comboMaxChekoutLength.getSelectionModel().selectFirst();
 	}	
 
     @FXML
@@ -69,23 +71,28 @@ public class AddBookController implements Initializable{
     	for(Author a: selectedAuthors){
     		newAuthors.add(a);
     	}
-    	
+    	int maxLength = comboMaxChekoutLength.getSelectionModel().getSelectedItem();
     	SystemController controller = new SystemController();
-    	boolean value = controller.addBook(textIsbn.getText(), 
-    						textTitle.getText(),
-    						comboMaxChekoutLength.getSelectionModel().getSelectedItem(),
-    						newAuthors);
-//    	da.saveNewBook(book);
+    	
     	try {
-			Parent root = FXMLLoader.load(getClass()
-					.getResource("fxml/BookList.fxml"));
-			System.out.println(bookListTableView.getItems());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			boolean value = controller.addBook(textIsbn.getText(), 
+								textTitle.getText(),
+								maxLength,
+								newAuthors);
+			if(value){
+				BookTableController bc = new BookTableController();
+	    		bc.addNewBook(
+	    				new Book(textIsbn.getText(), 
+	    						textTitle.getText(),
+	    						comboMaxChekoutLength.getSelectionModel().getSelectedItem(),
+	    						newAuthors)
+	    		);
+			}
+			
+		} catch (LibrarySystemException e) {
+			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
+			alert.show();
 		}
-    	
-    	
     }
 
 }
