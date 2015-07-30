@@ -66,6 +66,7 @@ public class MemberTableController implements Initializable {
 	@FXML
 	protected void handleAddMemberClickListener(ActionEvent event) {
 		Parent member;
+		System.out.println("inside member click");
 		try {
 			// InterfaceController controller = new InterfaceController();
 			addFormContent.getChildren().clear();
