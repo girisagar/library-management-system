@@ -38,17 +38,17 @@ public class TestData {
 	// @SuppressWarnings("serial")
 	private final List<LibraryMember> allMembers = new ArrayList<LibraryMember>() {
 		{
-			
-			add(new LibraryMember("001", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", 
-					"Street 001", "city001", "state001", "zip001"));
-			add(new LibraryMember("002", "Isabella", "Johnson", "isabella.johnson@example.com", "453535",
-					"Street 002", "city002", "state002", "zip002"));
-			add(new LibraryMember("003", "Ethan", "Williams", "ethan.williams@example.com", "453535",
-					"Street 003", "city003", "state003", "zip003"));
-			add(new LibraryMember("004", "Emma", "Jones", "emma.jones@example.com", "453535",
-					"Street 004", "city004", "state004", "zip004"));
-			add(new LibraryMember("005", "Michael", "Brown", "michael.brown@example.com", "453535",
-					"Street 005", "city005", "state005", "zip005"));
+
+			add(new LibraryMember("001", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "Street 001",
+					"city001", "state001", "zip001"));
+			add(new LibraryMember("002", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "Street 002",
+					"city002", "state002", "zip002"));
+			add(new LibraryMember("003", "Ethan", "Williams", "ethan.williams@example.com", "453535", "Street 003",
+					"city003", "state003", "zip003"));
+			add(new LibraryMember("004", "Emma", "Jones", "emma.jones@example.com", "453535", "Street 004", "city004",
+					"state004", "zip004"));
+			add(new LibraryMember("005", "Michael", "Brown", "michael.brown@example.com", "453535", "Street 005",
+					"city005", "state005", "zip005"));
 		}
 
 	};
@@ -60,8 +60,8 @@ public class TestData {
 		{
 			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
 			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
-			add(new Book("99-22223", "Thinking Java",21, Arrays.asList(allAuthors.get(3))));
-			add(new Book("48-56882", "Jimmy's First Day of School",7, Arrays.asList(allAuthors.get(4))));
+			add(new Book("99-22223", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
+			add(new Book("48-56882", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
 
 		}
 	};
@@ -120,8 +120,8 @@ public class TestData {
 	public List<LibraryMember> getAllMembers() {
 		return this.allMembers;
 	}
-	
-	public List<Book> getAllBooks(){
+
+	public List<Book> getAllBooks() {
 		return this.allBooks;
 	}
 

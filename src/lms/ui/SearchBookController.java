@@ -31,9 +31,8 @@ public class SearchBookController implements Initializable {
 	protected void textChangeListener() {
 		
 		System.out.println(searchBookTextField.getText().toUpperCase());
-		fd = new DataAccessFacade();
 		
-		boolean bb = fd.isBookExists(searchBookTextField.getText().toString());
+		
 		
 		try {
 			

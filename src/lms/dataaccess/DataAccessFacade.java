@@ -13,6 +13,9 @@ import java.util.List;
 import lms.business.Book;
 import lms.business.LibraryMember;
 
+import lms.business.LibrarySystemException;
+
+
 public class DataAccessFacade implements DataAccess {
 
 	enum StorageType {
@@ -36,9 +39,14 @@ public class DataAccessFacade implements DataAccess {
 		return b;
 	}
 
-	public boolean isBookExists(String isbn) {
-		HashMap<String, Book> booksMap = readBooksMap();
-		return booksMap.containsKey(isbn);
+	
+	public boolean isBookExists(Book book){
+		HashMap<String, Book> booksMap =  readBooksMap();
+		if(booksMap.containsKey(book.getIsbn())){
+			return true;
+		}
+		return false;
+
 	}
 
 	public Auth login(String id, String pwd) {
@@ -193,5 +201,21 @@ public class DataAccessFacade implements DataAccess {
 
 		private static final long serialVersionUID = 5399827794066637059L;
 	}
+
+
+
+
+	@Override
+	public boolean isMemberExist(LibraryMember member) {
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String memberID = member.getMemberId();
+		
+		if(memberMap.containsKey(memberID)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 
 }

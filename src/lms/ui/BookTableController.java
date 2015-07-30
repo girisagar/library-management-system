@@ -23,8 +23,10 @@ import lms.business.Book;
 import lms.dataaccess.DataAccess;
 import lms.dataaccess.DataAccessFacade;
 
-public class BookTableController implements
-		Initializable {
+public class BookTableController implements Initializable {
+	private static TableView<Book> bookTable;
+	private static AnchorPane addContent;
+	
 	@FXML
 	private TableView<Book> bookListTableView;
 
@@ -43,20 +45,16 @@ public class BookTableController implements
 	private TableColumn<Book, Integer> maxCheckout;
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Title"));
+	public void initialize(URL location, ResourceBundle resources) {		
+		bookTable = bookListTableView;
+		
+		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>("Title"));
 		isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
-		author.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Authors"));
-		copies.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"NumCopies"));
-		maxCheckout
-				.setCellValueFactory(new PropertyValueFactory<Book, Integer>(
-						"maxCheckoutLength"));
+		author.setCellValueFactory(new PropertyValueFactory<Book, String>("Authors"));
+		copies.setCellValueFactory(new PropertyValueFactory<Book, String>("NumCopies"));
+		maxCheckout.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
 
-		bookListTableView.getItems().addAll(
-				FXCollections.observableArrayList(parseBookList()));
+		bookListTableView.getItems().addAll(FXCollections.observableArrayList(parseBookList()));
 	}
 
 	private Collection<Book> parseBookList() {
@@ -74,10 +72,17 @@ public class BookTableController implements
 			addFormContent.setStyle("-fx-background-color: white;");
 			// System.out.println(super.getMainContent());
 			addFormContent.getChildren().add(root);
+			addContent = addFormContent;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void addNewBook(Book book){		
+		this.bookTable.getItems().add(book);
+		addContent.setStyle("");
+		addContent.getChildren().clear();
 	}
 }
