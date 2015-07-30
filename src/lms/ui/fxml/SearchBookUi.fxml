@@ -3,11 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.GridPane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.ui.SearchBookController">
    <children>
-      <ListView fx:id="searchBookListView" layoutX="37.0" layoutY="69.0" prefHeight="240.0" prefWidth="324.0" />
-      <TextField fx:id="searchBookText"  layoutX="67.0" layoutY="40.0" onKeyPressed="#OnKeypressedForSearchBook" />
+      <ListView fx:id="searchListViewId" layoutX="37.0" layoutY="69.0" prefHeight="240.0" prefWidth="324.0" />
+      <TextField fx:id="searchBookTextField" layoutX="37.0" layoutY="25.0" onKeyTyped="#textChangeListener" prefHeight="25.0" prefWidth="324.0" />
    </children>
 </Pane>

@@ -16,7 +16,7 @@ public class SearchBookController implements Initializable {
 	@FXML
 	private ListView<String> searchBookListView;
 	@FXML
-	private javafx.scene.control.TextField searchBookText;
+	private javafx.scene.control.TextField searchBookTextField;
 
 	DataAccessFacade fd ;
 	final ObservableList<String> listItems = FXCollections.observableArrayList();
@@ -26,20 +26,25 @@ public class SearchBookController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
-
+	
 	@FXML
-	protected void OnKeypressedForSearchBook() {
+	protected void textChangeListener() {
+		
+		System.out.println(searchBookTextField.getText().toUpperCase());
 		fd = new DataAccessFacade();
+		
+		boolean bb = fd.isBookExists(searchBookTextField.getText().toString());
+		
 		try {
-			Book bb = fd.searchBook(searchBookText.getText().toString());
-			System.out.println(bb.getIsbn());
+			
+	//		System.out.println(bb);
 		} catch (Exception e) {
 			System.out.println("error");
 		}
 		
-	//	listItems.add(bb);
-		listItems.add("saugat");
-		searchBookListView.setItems(listItems);
+	
+		/*listItems.add(bb.getIsbn());
+		searchBookListView.setItems(listItems);*/
 	}
 
 }

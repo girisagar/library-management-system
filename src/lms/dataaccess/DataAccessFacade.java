@@ -10,8 +10,8 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
-import lms.business.Author;
 import lms.business.Book;
+import lms.business.LibraryMember;
 
 public class DataAccessFacade implements DataAccess {
 
@@ -19,7 +19,9 @@ public class DataAccessFacade implements DataAccess {
 		BOOKS, MEMBERS, USERS, AUTHORS;
 	}
 
-	public static final String OUTPUT_DIR = System.getProperty("user.dir")
+	
+	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
+
 			+ "\\src\\lms\\dataaccess\\storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
@@ -50,12 +52,22 @@ public class DataAccessFacade implements DataAccess {
 		return user.getAuthorization();
 	}
 
-	// /////save methods
-	// saveNewMember
-	// public void saveNewMember(LibraryMember member)
+	
+	
+	///////save methods
+	//saveNewMember
+	public void saveNewMember(LibraryMember member) {
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String id = member.getMemberId();
+		memberMap.put(id, member);
+		saveToStorage(StorageType.MEMBERS, memberMap);
+	}
+		
+	
+	//public void updateMember(LibraryMember member) 
+	//save new lendable item
+	
 
-	// public void updateMember(LibraryMember member)
-	// save new lendable item
 	public void saveNewBook(Book book) {
 		HashMap<String, Book> bookMap = readBooksMap();
 		String isbn = book.getIsbn();
@@ -63,23 +75,36 @@ public class DataAccessFacade implements DataAccess {
 		saveToStorage(StorageType.BOOKS, bookMap);
 	}
 
-	// ////read methods that return full maps
 
 	@SuppressWarnings("unchecked")
 	public HashMap<String, Book> readBooksMap() {
 		return (HashMap<String, Book>) readFromStorage(StorageType.BOOKS);
 	}
 
-	// public HashMap<String, LibraryMember> readMemberMap() {
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	public HashMap<String, LibraryMember> readMemberMap() {
+		return (HashMap<String, LibraryMember>)readFromStorage(StorageType.MEMBERS);
+	}
+	
+	
 
 	@SuppressWarnings("unchecked")
 	public HashMap<String, User> readUserMap() {
 		return (HashMap<String, User>) readFromStorage(StorageType.USERS);
 	}
 
-	// ///load methods - these place test data into the storage area
-	// /// - used just once at startup
-	// static void loadMemberMap(List<LibraryMember> memberList) {
+	
+	
+	/////load methods - these place test data into the storage area
+	///// - used just once at startup  
+	static void loadMemberMap(List<LibraryMember> memberList) {
+		HashMap<String, LibraryMember> members = new HashMap<String, LibraryMember>();
+		memberList.forEach(member -> members.put(member.getMemberId(), member));
+		saveToStorage(StorageType.MEMBERS, members);
+	}
 
 	static void loadBookMap(List<Book> bookList) {
 		HashMap<String, Book> books = new HashMap<String, Book>();
