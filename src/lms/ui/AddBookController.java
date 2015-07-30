@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.util.Callback;
 import lms.business.Author;
 import lms.business.Book;
+import lms.dataaccess.DataAccessFacade;
 import lms.dataaccess.TestData;
 
 public class AddBookController implements Initializable{
@@ -60,6 +61,8 @@ public class AddBookController implements Initializable{
     							textTitle.getText(), 
     							comboMaxChekoutLength.getSelectionModel().getSelectedItem(), 
     							selectedAuthors);
+    	DataAccessFacade aa = new DataAccessFacade();
+    	aa.saveNewBook(book);
     }
 
 }
