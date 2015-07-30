@@ -30,10 +30,21 @@ public class SystemController implements ControllerInterface {
 	 * LibraryMember based on input data and uses DataAccess to store it.
 	 * 
 	 */
-	// public void addNewMember(String memberId, String firstName, String
-	// lastName,
-	// String telNumber, Address addr) throws LibrarySystemException {
 
+	public boolean addNewMember(String memberId, String firstName, String lastName, String email, String phone, 
+			String street, String city, String state, String zip) throws LibrarySystemException {
+		
+		LibraryMember member = new LibraryMember(memberId, firstName, lastName, email, phone, street, city, state, zip);
+		
+		DataAccess da = new DataAccessFacade();
+		
+		if(!da.isMemberExist(member)) {
+			da.saveNewMember(member);
+			return true;
+		}
+		throw new LibrarySystemException("Member already existed");
+	}
+		
 	/**
 	 * Reads data store for a library member with specified id. Ids begin at
 	 * 1001... Returns a LibraryMember if found, null otherwise
@@ -63,10 +74,15 @@ public class SystemController implements ControllerInterface {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Looks up book by isbn to see if it exists, throw exceptioni. Else add the
 	 * book to storage
 	 * 
 	 * @throws LibrarySystemException
+=======
+	 * Looks up book by isbn to see if it exists, throw exceptionion.
+	 * Else add the book to storage
+>>>>>>> 4346d7982acb02f992d32fd58358b4a635f28bde
 	 */
 
 	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors)

@@ -11,9 +11,7 @@ import java.util.List;
 
 import lms.business.Book;
 import lms.business.LibraryMember;
-
-
-
+import lms.business.LibrarySystemException;
 
 
 public class DataAccessFacade implements DataAccess {
@@ -187,6 +185,20 @@ public class DataAccessFacade implements DataAccess {
 			return "(" + first.toString() + ", " + second.toString() + ")";
 		}
 		private static final long serialVersionUID = 5399827794066637059L;
+	}
+
+
+
+	@Override
+	public boolean isMemberExist(LibraryMember member) {
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String memberID = member.getMemberId();
+		
+		if(memberMap.containsKey(memberID)) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 }

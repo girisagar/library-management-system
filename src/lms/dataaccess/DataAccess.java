@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import lms.business.Book;
 import lms.business.LibraryMember;
+import lms.business.LibrarySystemException;
 
 
 
@@ -25,4 +26,6 @@ public interface DataAccess {
 	public HashMap<String, LibraryMember> readMemberMap();
 	//check book exists or not
 	public boolean isBookExists(Book book);
+	
+	public boolean isMemberExist(LibraryMember member) ;
 }

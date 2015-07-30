@@ -26,6 +26,7 @@ import lms.dataaccess.DataAccessFacade;
 public class BookTableController implements Initializable {
 	private static TableView<Book> bookTable;
 	private static AnchorPane addContent;
+	
 	@FXML
 	private TableView<Book> bookListTableView;
 
@@ -46,19 +47,14 @@ public class BookTableController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {		
 		bookTable = bookListTableView;
-		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Title"));
+		
+		bookTitle.setCellValueFactory(new PropertyValueFactory<Book, String>("Title"));
 		isbn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
-		author.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"Authors"));
-		copies.setCellValueFactory(new PropertyValueFactory<Book, String>(
-				"NumCopies"));
-		maxCheckout
-				.setCellValueFactory(new PropertyValueFactory<Book, Integer>(
-						"maxCheckoutLength"));
+		author.setCellValueFactory(new PropertyValueFactory<Book, String>("Authors"));
+		copies.setCellValueFactory(new PropertyValueFactory<Book, String>("NumCopies"));
+		maxCheckout.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
 
-		bookListTableView.getItems().addAll(
-				FXCollections.observableArrayList(parseBookList()));
+		bookListTableView.getItems().addAll(FXCollections.observableArrayList(parseBookList()));
 	}
 
 	private Collection<Book> parseBookList() {
