@@ -22,13 +22,13 @@ import javafx.scene.layout.Pane;
 import lms.business.Book;
 import lms.dataaccess.DataAccessFacade;
 
-public class BookTableController extends InterfaceController implements
+public class BookTableController implements
 		Initializable {
 	@FXML
 	private TableView<Book> bookListTableView;
 
 	@FXML
-	private AnchorPane bookListConentainer;
+	private AnchorPane addFormContent;
 
 	@FXML
 	private TableColumn<Book, String> bookTitle;
@@ -71,10 +71,11 @@ public class BookTableController extends InterfaceController implements
 		Parent root;
 		try {
 			// InterfaceController controller = new InterfaceController();
-			bookListConentainer.getChildren().clear();
+			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/AddBook.fxml"));
+			addFormContent.setStyle("-fx-background-color: white;");
 			// System.out.println(super.getMainContent());
-			bookListConentainer.getChildren().add(root);
+			addFormContent.getChildren().add(root);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

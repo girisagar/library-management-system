@@ -28,15 +28,6 @@ public class MemberTableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        firstName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("lastName"));
-        email.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Email"));
-        state.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("State"));
-        city.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("City"));
-        phone.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Phone"));
-
-        memberListTableView.getItems().addAll(FXCollections.observableArrayList(parseMemberList()));
     	memberId.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("memberId"));
         firstName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("lastName"));
