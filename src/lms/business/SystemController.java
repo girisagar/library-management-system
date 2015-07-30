@@ -73,12 +73,10 @@ public class SystemController implements ControllerInterface {
 	 * Looks up book by isbn to see if it exists, throw exceptioni.
 	 * Else add the book to storage
 	 */
-	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) {		
+	public boolean addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) throws LibrarySystemException {		
 			DataAccess da = new DataAccessFacade();
-			try{
-				da.searchBook(isbn);
-			}
-			throw new LibrarySystemException ("book with isbn already esists");
+			
+			da.searchBook(isbn);
 			return false;
 	}
 			
