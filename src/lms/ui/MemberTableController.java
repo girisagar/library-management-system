@@ -61,6 +61,8 @@ public class MemberTableController implements Initializable {
 		city.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("City"));
 		state.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("State"));
 		zip.setCellValueFactory(new PropertyValueFactory<LibraryMember, String>("Zip"));
+		
+		
 
 		memberListTableView.setItems((FXCollections.observableArrayList(parseMemberList())));
 	}
