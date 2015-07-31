@@ -270,11 +270,10 @@ public class BookTableController implements Initializable {
 		return selectedIndex;
 	}
 	
-	public void changeCellValue() {
-		bookTable.getItems().remove(selectedIndex);
-		bookTable.getItems().add(getSelectedBook());
+	public void changeCellValue(Book book) {
+		bookTable.getItems().clear();
+		bookTable.getItems().addAll(FXCollections.observableArrayList(parseBookList()));
 	}
-	
 	
 
 }

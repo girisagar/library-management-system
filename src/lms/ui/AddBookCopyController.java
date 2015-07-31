@@ -29,19 +29,28 @@ public class AddBookCopyController implements Initializable {
 		String numberOfCopies = textIsbn.getText().toString();
 		BookTableController bc = new BookTableController();
 		Book book = bc.getSelectedBook();
+		Book updatedBook = null;
 		
 		SystemController controller = new SystemController();
 		for (int i = 0; i < Integer.parseInt(numberOfCopies); i++) {
 			try {
-				controller.addBookCopy(book.getIsbn());	
+				updatedBook = controller.addBookCopy(book.getIsbn());	
 				
 			} catch (LibrarySystemException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		bc.changeCellValue(updatedBook);
 		
-		bc.changeCellValue();
+//		try {
+//			Book updatedBook = controller.addBookCopy(book.getIsbn());
+//			bc.changeCellValue(updatedBook);
+//		} catch (LibrarySystemException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}		
+		
 	}
 
 	@Override

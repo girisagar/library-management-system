@@ -100,12 +100,14 @@ public class SystemController implements ControllerInterface {
 		return true;
 	}
 
-	public boolean addBookCopy(String isbn) throws LibrarySystemException {
+	public Book addBookCopy(String isbn) throws LibrarySystemException {
 		Book book = searchBook(isbn);
 		if (book == null)
 			throw new LibrarySystemException("No book with isbn " + isbn + " is in the library collection!");
 		book.addCopy();
-		return true;
+		DataAccess da = new DataAccessFacade();
+		da.saveNewBook(book);
+		return book;
 	}
 
 	public static void main(String[] args) throws LibrarySystemException {
