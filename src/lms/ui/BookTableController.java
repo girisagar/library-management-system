@@ -120,7 +120,6 @@ public class BookTableController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public void addNewBook(Book book) {

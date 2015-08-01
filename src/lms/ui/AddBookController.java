@@ -74,13 +74,13 @@ public class AddBookController implements Initializable{
     							comboMaxChekoutLength.getSelectionModel().getSelectedItem(), 
     							selectedAuthors);
     	DataAccessFacade aa = new DataAccessFacade();
-    	aa.saveNewBook(book);
-
+    	
     	List<Author> newAuthors = new ArrayList<Author>();
     	for(Author a: selectedAuthors){
     		newAuthors.add(a);
     	}
-    	int maxLength = comboMaxChekoutLength.getSelectionModel().getSelectedItem();
+    	
+    	int maxLength = comboMaxChekoutLength.getSelectionModel().getSelectedItem();    	
     	SystemController controller = new SystemController();
     	
     	try {

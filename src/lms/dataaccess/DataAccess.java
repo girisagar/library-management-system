@@ -3,6 +3,7 @@ package lms.dataaccess;
 import java.util.HashMap;
 
 import lms.business.Book;
+import lms.business.CheckoutRecord;
 import lms.business.LibraryMember;
 import lms.business.LibrarySystemException;
 
@@ -21,9 +22,10 @@ public interface DataAccess {
 	public void saveNewBook(Book book);
 	
 	//////read methods 
-	public HashMap<String,Book> readBooksMap();
+	public HashMap<String, Book> readBooksMap();
 	public HashMap<String,User> readUserMap();
 	public HashMap<String, LibraryMember> readMemberMap();
+	public HashMap<String, CheckoutRecord> readCheckoutRecordMap();
 	//check book exists or not
 	public boolean isBookExists(Book book);
 	public boolean isBookExists(String isbn);

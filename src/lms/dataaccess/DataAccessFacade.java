@@ -11,32 +11,48 @@ import java.util.HashMap;
 import java.util.List;
 
 import lms.business.Book;
+import lms.business.CheckoutRecord;
+import lms.business.CheckoutRecordEntry;
 import lms.business.LibraryMember;
 
 import lms.business.LibrarySystemException;
 
 
-public class DataAccessFacade implements DataAccess {
+@SuppressWarnings("serial")
+public class DataAccessFacade implements DataAccess, Serializable {
 
 	enum StorageType {
-		BOOKS, MEMBERS, USERS, AUTHORS;
+		BOOKS, MEMBERS, USERS, AUTHORS, RECORD ;
 	}
 
-	
+	private static String getPath(){
+		if((System.getProperty("os.name")).equals("Linux")){
+			return "/src/lms/dataaccess/storage";
+		}
+		return "\\src\\lms\\dataaccess\\storage";
+	}
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 
-			+ "\\src\\lms\\dataaccess\\storage";
+			+ getPath();
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 	// //specialized lookup methods
-	// public LibraryMember searchMember(String memberId) {
-	// implement
-	// }
+	public LibraryMember searchMember(String memberId) {
+		 HashMap<String, LibraryMember> memberMap = readMemberMap();
+		 LibraryMember m = memberMap.get(memberId);
+		 return m;
+	}
 
 	public Book searchBook(String isbn) {
 		HashMap<String, Book> booksMap = readBooksMap();
 		Book b = booksMap.get(isbn);
 		return b;
+	}
+	
+	public CheckoutRecord searchCheckoutRecord(String memberId) {
+		 HashMap<String, CheckoutRecord> memberRecord = readCheckoutRecordMap();
+		 CheckoutRecord m = memberRecord.get(memberId);
+		 return m;
 	}
 
 	
@@ -51,6 +67,14 @@ public class DataAccessFacade implements DataAccess {
 	public boolean isBookExists(String isbn){
 		HashMap<String, Book> booksMap =  readBooksMap();
 		if(booksMap.containsKey(isbn)){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isRecordExists(String memberId){
+		HashMap<String, CheckoutRecord> recordMap =  readCheckoutRecordMap();
+		if(recordMap.containsKey(memberId)){
 			return true;
 		}
 		return false;
@@ -89,6 +113,13 @@ public class DataAccessFacade implements DataAccess {
 		bookMap.put(isbn, book);
 		saveToStorage(StorageType.BOOKS, bookMap);
 	}
+	
+	public void saveNewCheckoutRecord(CheckoutRecord record) {
+		HashMap<String, CheckoutRecord> recordMap = readCheckoutRecordMap();
+		String id = record.getLibraryMember().getMemberId();
+		recordMap.put(id, record);
+		saveToStorage(StorageType.RECORD, recordMap);
+	}
 
 
 	@SuppressWarnings("unchecked")
@@ -112,6 +143,10 @@ public class DataAccessFacade implements DataAccess {
 	}
 
 	
+	@SuppressWarnings("unchecked")
+	public HashMap<String, CheckoutRecord> readCheckoutRecordMap() {
+		return (HashMap<String,CheckoutRecord>) readFromStorage(StorageType.RECORD);
+	}
 	
 	/////load methods - these place test data into the storage area
 	///// - used just once at startup  
@@ -132,7 +167,14 @@ public class DataAccessFacade implements DataAccess {
 		userList.forEach(user -> users.put(user.getId(), user));
 		saveToStorage(StorageType.USERS, users);
 	}
-
+	
+	static void loadCheckoutRecordMap(List<CheckoutRecord> recordList) {
+		HashMap<String, CheckoutRecord> records = new HashMap<String, CheckoutRecord>();
+		recordList.forEach(record -> records.put(record.getLibraryMember().getMemberId()+"", record));
+		
+		saveToStorage(StorageType.RECORD, records);
+	}
+	
 	static void saveToStorage(StorageType type, Object ob) {
 		ObjectOutputStream out = null;
 		try {
