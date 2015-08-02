@@ -50,11 +50,11 @@ public class InterfaceController {
 
 		try {
 			// loginRules.applyRules(loginForm);
-
 			try {
 				controller.login(userName.getText().toString(), passwordField
 						.getText().toString());
 				if (controller.currentAuth != null) {
+					//TODO open main window
 					System.out.println(controller.currentAuth);
 				}
 			} catch (LoginException e) {

@@ -16,7 +16,7 @@
 					<children>
 						<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
 							<children>
-								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="387.0">
+								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="603.0">
 									<children>
 										<Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAddCheckoutClickListener" prefHeight="25.0" prefWidth="224.0" text="Add Checkout Record">
 											<cursor>
@@ -30,7 +30,18 @@
 											<cursor>
 												<Cursor fx:constant="DEFAULT" />
 											</cursor>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
 										</Button>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleSearchOverdueClickListener" prefHeight="25.0" prefWidth="234.0" text="Search Overdue">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
 									</children>
 								</HBox>
 							</children>
@@ -44,7 +55,7 @@
 								<Cursor fx:constant="DEFAULT" />
 							</cursor>
 						</HBox>
-						<TableView fx:id="bookListTableView" prefHeight="349.0" prefWidth="350.0">
+						<TableView fx:id="bookListTableView" prefHeight="200" prefWidth="350.0">
 							<columns>
 								<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
 								<TableColumn fx:id="bookTitle" prefWidth="160.0" text="Title" />
@@ -56,6 +67,21 @@
 								<Cursor fx:constant="DEFAULT" />
 							</cursor>
 						</TableView>
+						
+						<TableView fx:id="overdueTableView" prefHeight="200" prefWidth="350.0">
+							<columns>
+								<TableColumn fx:id="dIsbn" prefWidth="50.0" text="ISBN" />
+								<TableColumn fx:id="dBookTitle" prefWidth="150.0" text="Title" />
+								<TableColumn fx:id="dCopyNumber" minWidth="7.0" prefWidth="90.0" text="Copy No." />
+								<TableColumn fx:id="dCheckOutDate" prefWidth="120.0" text="Checkout Date" />
+								<TableColumn fx:id="dDueDate" prefWidth="100.0" text="Due Date" />
+								<TableColumn fx:id="memberName" prefWidth="100.0" text="Member" />
+							</columns>
+							<cursor>
+								<Cursor fx:constant="DEFAULT" />
+							</cursor>
+						</TableView>
+						
 					</children>
 					<BorderPane.margin>
 						<Insets right="20.0" />

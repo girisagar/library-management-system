@@ -1,27 +1,25 @@
 package lms.ui;
 
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import lms.business.CheckoutRecord;
+import lms.business.CheckoutRecordEntry;
 import lms.business.ControllerInterface;
+import lms.business.LibraryMember;
 import lms.business.LibrarySystemException;
 import lms.business.SystemController;
 
-public class AddCheckoutRecordController {
-    @FXML
-    private URL location;
-
-    @FXML
-    private TextField textIsbn;
+public class SearchOverdueController {
 
     @FXML
     private Button addCheckoutRecordButton;
@@ -30,30 +28,23 @@ public class AddCheckoutRecordController {
     private Label labelBookTitle;
 
     @FXML
+    private TextField textIsbn;
+
+    @FXML
     private Label labelIsbnValue;
 
     @FXML
-    private TextField textMemberId;
-
-    @FXML
-    void handleAddCheckoutRecordActionListener(ActionEvent event) {
+    void handleSearchOverDueClickAction(ActionEvent event) {
+//    	Alert()
     	String isbn = textIsbn.getText().toString();
-    	String memberId = textMemberId.getText().toString();
-    	
     	ControllerInterface controller = new SystemController();
     	try {
-			CheckoutRecord record = controller.checkoutBook(memberId, isbn);
-			addEntryToTables(record);
-			
+    		CheckoutRecordController checkoutController = new CheckoutRecordController();
+    		checkoutController.setOverdueTableView(isbn);
+    		
 		} catch (LibrarySystemException e) {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
 			alert.show();
 		}
-    }
-    
-    static void addEntryToTables(CheckoutRecord record){
-    	CheckoutRecordController cController = new CheckoutRecordController();
-    	cController.addDataToTable(record.getCheckoutRecordEntries());
-
     }
 }
