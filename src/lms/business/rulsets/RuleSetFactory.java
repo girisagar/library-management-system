@@ -4,7 +4,7 @@ import java.awt.Component;
 import java.util.HashMap;
 
 import javafx.application.Application;
-import lms.ui.LoginForm;
+import lms.ui.LoginController;
 import lms.ui.RuleSet;
 
 final public class RuleSetFactory {
@@ -12,7 +12,7 @@ final public class RuleSetFactory {
 	static HashMap<Class<? extends Application>, RuleSet> map = new HashMap<>();
 	static {
 // add your window's ruleset here.
-		map.put(LoginForm.class, new LoginRuleSet());
+		map.put(LoginController.class, new LoginRuleSet());
 //		map.put(ProfileWindow.class, new CustomerProfileRuleSet());
 		
 		

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
@@ -27,14 +28,17 @@
     </MenuBar>
     <BorderPane fx:id="mainBorder" prefHeight="575.9998779296875" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
       <center>
-        <AnchorPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0" />
+        <AnchorPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin></AnchorPane>
       </center>
       <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="left">
           <children>
-            <FlowPane minWidth="175.0" orientation="VERTICAL" prefHeight="504.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <children>
-                <Label id="author" fx:id="labelAuthor" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Authors" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                  <VBox fx:id="vBoxBoth" visible="false">
+                     <children>
+                <Label id="book" fx:id="labelBook" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
                   <font>
                     <Font size="24.0" fx:id="x1" />
                   </font>
@@ -47,22 +51,57 @@
                     <Insets left="5.0" right="5.0" fx:id="x3" />
                   </FlowPane.margin>
                 </Separator>
-                <Label id="book" fx:id="labelBook" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
-                <Separator prefWidth="180.0" FlowPane.margin="$x3" />
                 <Label id="member" fx:id="labelMember" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
                 <Separator prefWidth="180.0" FlowPane.margin="$x3" />
-                        <Label id="checkout" fx:id="labelCheckout" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                <Label id="checkout" fx:id="labelCheckout" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
+                <Separator prefWidth="180.0" FlowPane.margin="$x3" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vBoxAdmin" layoutX="10.0" layoutY="10.0" visible="false">
+                     <children>
+                        <Label id="book" fx:id="labelBook1" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                           <font>
+                              <Font size="24.0" fx:id="x11" />
+                           </font>
                            <FlowPane.margin>
-                              <Insets left="10.0" />
+                              <Insets left="10.0" fx:id="x21" />
                            </FlowPane.margin>
                         </Label>
-                        <Separator prefWidth="180.0">
+                        <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
                            <FlowPane.margin>
-                              <Insets left="5.0" right="5.0" />
+                              <Insets left="5.0" right="5.0" fx:id="x31" />
                            </FlowPane.margin>
                         </Separator>
-              </children>
-            </FlowPane>
+                        <Label id="member" fx:id="labelMember1" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x11" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x21" />
+                        <Separator prefWidth="180.0" FlowPane.margin="$x31" />
+                     </children>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vBoxLibrarian" layoutX="10.0" layoutY="10.0" visible="false">
+                     <children>
+                        <Label id="c" fx:id="labelCheckout2" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                           <font>
+                              <Font size="24.0" fx:id="x12" />
+                           </font>
+                           <FlowPane.margin>
+                              <Insets left="10.0" fx:id="x22" />
+                           </FlowPane.margin>
+                        </Label>
+                        <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
+                           <FlowPane.margin>
+                              <Insets left="5.0" right="5.0" fx:id="x32" />
+                           </FlowPane.margin>
+                        </Separator>
+                     </children>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
+                  </VBox>
           </children>
           <stylesheets>
             <URL value="@../stylesheets/maincontainer.css" />
@@ -76,6 +115,14 @@
               <stylesheets>
                 <URL value="@../stylesheets/maincontainer.css" />
               </stylesheets>
+                     <children>
+                        <ImageView fx:id="imageUser" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="labelUser" alignment="BASELINE_LEFT" layoutX="54.0" layoutY="28.0" text="Auth Level" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
             </AnchorPane>
             <AnchorPane prefHeight="72.0" prefWidth="200.0" styleClass="header-logo" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
               <children>

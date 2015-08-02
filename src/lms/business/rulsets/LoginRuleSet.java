@@ -1,15 +1,11 @@
 package lms.business.rulsets;
 
-import java.awt.Component;
-
 import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
-import lms.ui.InterfaceController;
-import lms.ui.LoginForm;
+import lms.ui.LoginController;
 import lms.ui.RuleSet;
 
 public class LoginRuleSet implements RuleSet{
-	InterfaceController controller = new InterfaceController();
+	LoginController controller = new LoginController();
 	@Override
 	public void applyRules(Application ob) throws RuleException {
 		// TODO Auto-generated method stub

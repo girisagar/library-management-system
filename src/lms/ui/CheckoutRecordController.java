@@ -68,7 +68,17 @@ public class CheckoutRecordController implements Initializable {
 
     @FXML
     void handlePrintCheckoutClickListener(ActionEvent event) {
-
+    	Parent root;
+		try {
+			addFormContent.getChildren().clear();
+			root = FXMLLoader.load(getClass().getResource("fxml/PrintCheckoutRecord.fxml"));
+			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.getChildren().add(root);
+			addContent = addFormContent;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 	@Override

@@ -1,80 +1,44 @@
 package lms.ui;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-
-import javafx.scene.layout.GridPane;
-import lms.business.LoginException;
+import javafx.scene.layout.VBox;
 import lms.business.SystemController;
-import lms.business.rulsets.RuleSetFactory;
 
-public class InterfaceController {
+public class InterfaceController implements Initializable{
 
 	@FXML
 	private AnchorPane mainContent;
 	@FXML
 	private BorderPane mainBorder;
-
-	private SystemController controller;
+    
 	@FXML
-	private TextField userName;
+    private Label labelUser;
+	
+    @FXML
+    private ImageView imageUser;
+    
+    @FXML
+    private VBox vBoxBoth;
+    
 	@FXML
-	private PasswordField passwordField;
+	private VBox vBoxAdmin;
+	
 	@FXML
-	private GridPane loginPane;
-
-	// @FXML private memberListTableView;
-
-	@FXML
-	protected void handleLoginSubmitButtonAction(ActionEvent event) {
-		controller = new SystemController();
-		// System.out.println(userName.getText().toString());
-		LoginForm loginForm = new LoginForm();
-		RuleSet loginRules = RuleSetFactory.getRuleSet(loginForm);
-
-		try {
-			// loginRules.applyRules(loginForm);
-
-			try {
-				controller.login(userName.getText().toString(), passwordField
-						.getText().toString());
-				if (controller.currentAuth != null) {
-					System.out.println(controller.currentAuth);
-				}
-			} catch (LoginException e) {
-				Alert alert = new Alert(AlertType.ERROR, e.getMessage());
-				alert.showAndWait();
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			Alert alert = new Alert(AlertType.WARNING, e.getMessage());
-			alert.showAndWait();
-		}
-	}
-
-	public String getUserName() {
-		return this.userName.getText().toString();
-	}
-
-	public String getPassword() {
-		return this.passwordField.getText().toString();
-	}
+	private VBox vBoxLibrarian;
 
 	@FXML
 	protected void handleSubmitButtonAction(ActionEvent event) {
@@ -206,6 +170,42 @@ public class InterfaceController {
 
 	public AnchorPane getMainContent() {
 		return this.mainContent;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		Image image;
+		SystemController controller = new SystemController();
+		System.out.println(controller.currentAuth.toString());
+
+		labelUser.setText(controller.currentAuth.toString());
+		//get the image for the user
+		switch (controller.currentAuth.toString()) {
+		case "ADMIN" :
+			image = new Image("/lms/ui/imgs/admin.png");
+			imageUser.setImage(image);
+			
+			vBoxAdmin.setVisible(true);
+			break;
+		
+		case "LIBRARIAN" :
+			image = new Image("/lms/ui/imgs/librarian.png");
+			imageUser.setImage(image);
+			vBoxLibrarian.setVisible(true);
+			break;
+		
+		case "BOTH" :
+			image = new Image("/lms/ui/imgs/both.png");
+			imageUser.setImage(image);
+			vBoxBoth.setVisible(true);
+			break;
+		
+			
+		default:
+			
+			break;
+		}
+		
 	}
 
 }

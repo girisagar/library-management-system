@@ -176,14 +176,20 @@ public class SystemController implements ControllerInterface {
 		return updatedRecord;		
 	}
 	
-	public CheckoutRecord getCheckoutRecord(String memberId) {
+	public CheckoutRecord getCheckoutRecord(String memberId) throws LibrarySystemException{
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, CheckoutRecord> checkoutRecords = da.readCheckoutRecordMap();
 		if(da.isMemberExist(memberId)) {
-			return checkoutRecords.get(memberId);
+			if(da.isCheckoutRecordExists(memberId)) {
+				return checkoutRecords.get(memberId);
+			}
+			else {
+				throw new LibrarySystemException("Checkout record not found for this member");
+			}
 		}
-		return null;
-		
+		else {
+			throw new LibrarySystemException("Member not exist.");
+		}
 	}
 
 }
