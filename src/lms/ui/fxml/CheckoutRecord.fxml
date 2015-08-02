@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane id="bookListConentainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.ui.CheckoutRecordController">
+	<children>
+		<BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+			<left>
+				<VBox prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+					<children>
+						<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+							<children>
+								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="387.0">
+									<children>
+										<Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAddCheckoutClickListener" prefHeight="25.0" prefWidth="224.0" text="Add Checkout Record">
+											<cursor>
+												<Cursor fx:constant="DEFAULT" />
+											</cursor>
+											<HBox.margin>
+												<Insets left="10.0" right="10.0" />
+											</HBox.margin>
+										</Button>
+										<Button alignment="CENTER" mnemonicParsing="false" onAction="#handlePrintCheckoutClickListener" prefHeight="25.0" prefWidth="234.0" text="Print Checkout Record">
+											<cursor>
+												<Cursor fx:constant="DEFAULT" />
+											</cursor>
+										</Button>
+									</children>
+								</HBox>
+							</children>
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<effect>
+								<DropShadow color="#27e44d" height="38.79" radius="22.6025" width="53.62" />
+							</effect>
+							<cursor>
+								<Cursor fx:constant="DEFAULT" />
+							</cursor>
+						</HBox>
+						<TableView fx:id="bookListTableView" prefHeight="349.0" prefWidth="350.0">
+							<columns>
+								<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
+								<TableColumn fx:id="bookTitle" prefWidth="160.0" text="Title" />
+								<TableColumn fx:id="copies" minWidth="7.0" prefWidth="87.0" text="Copy Number" />
+								<TableColumn fx:id="checkOutDate" prefWidth="140.0" text="Check Out Date" />
+								<TableColumn fx:id="dueDate" prefWidth="140.0" text="Due Date" />
+							</columns>
+							<cursor>
+								<Cursor fx:constant="DEFAULT" />
+							</cursor>
+						</TableView>
+					</children>
+					<BorderPane.margin>
+						<Insets right="20.0" />
+					</BorderPane.margin>
+				</VBox>
+			</left>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+			<right>
+				<BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<top>
+						<HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+					</top>
+					<center>
+						<AnchorPane fx:id="addFormContent" prefHeight="348.0" prefWidth="246.0" BorderPane.alignment="CENTER">
+							<padding>
+								<Insets bottom="10.0" right="10.0" top="10.0" />
+							</padding>
+						</AnchorPane>
+					</center>
+				</BorderPane>
+			</right>
+		</BorderPane>
+	</children>
+</Pane>
