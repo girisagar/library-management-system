@@ -10,6 +10,8 @@ import javafx.scene.text.Text;
 import lms.business.LibraryMember;
 import lms.business.LibrarySystemException;
 import lms.business.SystemController;
+import lms.business.rulsets.AddMemberRuleSet;
+import lms.business.rulsets.RuleException;
 
 public class AddMemberController {
 
@@ -45,26 +47,34 @@ public class AddMemberController {
 
 	@FXML
 	void handleAddMemberButtonAction(ActionEvent event) {
-
-		 
-		 SystemController controller = new SystemController();
-		 try {
-			boolean added = controller.addNewMember(textId.getText(), textFirstName.getText(),
-					 textLastName.getText(), textEmail.getText(),
-					 textNumber.getText(), textStreet.getText(), textCity.getText(), textState.getText(), textZip.getText());
-			if(added) {
-				MemberTableController memberTable = new MemberTableController();
-				memberTable.addNewMember(new LibraryMember(textId.getText(), textFirstName.getText(),
-					 textLastName.getText(), textEmail.getText(),
-					 textNumber.getText(), textStreet.getText(), textCity.getText(), textState.getText(), textZip.getText()));
+		AddMemberRuleSet rule = new AddMemberRuleSet();
+		
+		try {
+			rule.applyRule(textId, textStreet, textNumber, textFirstName, textEmail, textZip, textState, textCity);
+			
+			SystemController controller = new SystemController();
+			 try {
+				boolean added = controller.addNewMember(textId.getText(), textFirstName.getText(),
+						 textLastName.getText(), textEmail.getText(),
+						 textNumber.getText(), textStreet.getText(), textCity.getText(), textState.getText(), textZip.getText());
+				if(added) {
+					MemberTableController memberTable = new MemberTableController();
+					memberTable.addNewMember(new LibraryMember(textId.getText(), textFirstName.getText(),
+						 textLastName.getText(), textEmail.getText(),
+						 textNumber.getText(), textStreet.getText(), textCity.getText(), textState.getText(), textZip.getText()));
+				}
+				
+				
+			} catch (LibrarySystemException e) {
+				Alert alert = new Alert(AlertType.ERROR, e.getMessage());
+				alert.show();
 			}
-			
-			
-		} catch (LibrarySystemException e) {
-			// TODO Auto-generated catch block
-			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
+		} catch (RuleException e1) {
+			Alert alert = new Alert(AlertType.ERROR, e1.getMessage());
 			alert.show();
 		}
+		 
+		 
 		 
 
 	}

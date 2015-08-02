@@ -1,17 +1,14 @@
 package lms.business;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class CheckoutRecord implements Serializable  {
-	private LibraryMember member;
+	private LibraryMember libraryMember;
 	private CheckoutRecordEntry[] checkoutRecordEntries ;
 	
-	public CheckoutRecord(LibraryMember member, CheckoutRecordEntry checkoutRecordEntry) {
+	public CheckoutRecord(LibraryMember libraryMember, CheckoutRecordEntry checkoutRecordEntry) {
 		super();
-		this.member = member;
+		this.libraryMember = libraryMember;
 		checkoutRecordEntries = new CheckoutRecordEntry[]{checkoutRecordEntry};
 	}
 	
@@ -22,7 +19,12 @@ public class CheckoutRecord implements Serializable  {
 		checkoutRecordEntries = newArr;
 	}
 	
-	public LibraryMember getLibraryMember(){
-		return this.member;
+
+	public LibraryMember getLibraryMember() {
+		return libraryMember;
+	}
+
+	public CheckoutRecordEntry[] getCheckoutRecordEntries() {
+		return checkoutRecordEntries;
 	}
 }

@@ -23,7 +23,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
-      <TextField fx:id="textIsbn" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="textNumberOfCopy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="addBookButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleAddBookCopyActionListener" prefHeight="25.0" prefWidth="118.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
       <Label contentDisplay="TOP" text="ISBN">
          <padding>

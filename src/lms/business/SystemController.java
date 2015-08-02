@@ -1,7 +1,10 @@
 package lms.business;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 
 import lms.dataaccess.Auth;
 import lms.dataaccess.DataAccess;
@@ -118,6 +121,16 @@ public class SystemController implements ControllerInterface {
 	public void checkoutBook(String memberId, String isbn) throws LibrarySystemException {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public CheckoutRecord getCheckoutRecord(String memberId) {
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, CheckoutRecord> checkoutRecords = da.readCheckoutRecordMap();
+		if(da.isMemberExist(memberId)) {
+			return checkoutRecords.get(memberId);
+		}
+		return null;
+		
 	}
 
 }

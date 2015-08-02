@@ -71,7 +71,7 @@ public class BookTableController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("Authors"));
 		copies.setCellValueFactory(new PropertyValueFactory<Book, String>("NumCopies"));
 		maxCheckout.setCellValueFactory(new PropertyValueFactory<Book, Integer>("maxCheckoutLength"));
-
+		addContent = addFormContent;
 		
 		Callback<TableColumn, TableCell> cellFactory = p -> new EditingCell();
 		// Insert Button
@@ -124,6 +124,10 @@ public class BookTableController implements Initializable {
 
 	public void addNewBook(Book book) {
 		this.bookTable.getItems().add(book);
+		clearSubView();
+	}
+	
+	public void clearSubView() {
 		addContent.setStyle("");
 		addContent.getChildren().clear();
 	}
@@ -177,13 +181,15 @@ public class BookTableController implements Initializable {
 				}
 			});
 		}
-		
+
 		// Display button if the row is not empty
 		@Override
 		protected void updateItem(Boolean t, boolean empty) {
 			super.updateItem(t, empty);
 			if (!empty) {
 				setGraphic(cellButton);
+			} else {
+				setGraphic(null);
 			}
 		}
 	}
@@ -273,6 +279,4 @@ public class BookTableController implements Initializable {
 		bookTable.getItems().clear();
 		bookTable.getItems().addAll(FXCollections.observableArrayList(parseBookList()));
 	}
-	
-
 }

@@ -14,7 +14,6 @@ import lms.business.Book;
 import lms.business.CheckoutRecord;
 import lms.business.CheckoutRecordEntry;
 import lms.business.LibraryMember;
-
 import lms.business.LibrarySystemException;
 
 
@@ -26,7 +25,7 @@ public class DataAccessFacade implements DataAccess, Serializable {
 	}
 
 	private static String getPath(){
-		if((System.getProperty("os.name")).equals("Linux")){
+		if((System.getProperty("os.name")).equals("Linux") || System.getProperty("os.name").equals("Mac OS X")){
 			return "/src/lms/dataaccess/storage";
 		}
 		return "\\src\\lms\\dataaccess\\storage";
@@ -55,6 +54,19 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		 return m;
 	}
 
+	@Override
+	public boolean isMemberExist(LibraryMember member) {
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String memberID = member.getMemberId();
+		
+		if(memberMap.containsKey(memberID)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 	
 	public boolean isBookExists(Book book){
 		HashMap<String, Book> booksMap =  readBooksMap();
@@ -251,20 +263,15 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		private static final long serialVersionUID = 5399827794066637059L;
 	}
 
-
-
-
 	@Override
-	public boolean isMemberExist(LibraryMember member) {
+	public boolean isMemberExist(String memberId) {
 		HashMap<String, LibraryMember> memberMap = readMemberMap();
-		String memberID = member.getMemberId();
-		
-		if(memberMap.containsKey(memberID)) {
+		if(memberMap.containsKey(memberId)) {
 			return true;
 		}
 		
 		return false;
 	}
-	
+
 
 }

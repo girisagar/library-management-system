@@ -6,16 +6,20 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import lms.business.Book;
 import lms.business.LibrarySystemException;
 import lms.business.SystemController;
+import lms.business.rulsets.AddBookCopyRuleSet;
+import lms.business.rulsets.RuleException;
 
 public class AddBookCopyController implements Initializable {
 
 	@FXML
-	private TextField textIsbn;
+	private TextField textNumberOfCopy;
 
 	@FXML
 	private Label labelBookTitle;
@@ -26,22 +30,36 @@ public class AddBookCopyController implements Initializable {
 
 	@FXML
 	protected void handleAddBookCopyActionListener(ActionEvent event) {
-		String numberOfCopies = textIsbn.getText().toString();
-		BookTableController bc = new BookTableController();
-		Book book = bc.getSelectedBook();
-		Book updatedBook = null;
 		
-		SystemController controller = new SystemController();
-		for (int i = 0; i < Integer.parseInt(numberOfCopies); i++) {
-			try {
-				updatedBook = controller.addBookCopy(book.getIsbn());	
-				
-			} catch (LibrarySystemException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		AddBookCopyRuleSet rule = new AddBookCopyRuleSet();
+		
+		try {
+			rule.applyRule(textNumberOfCopy);
+			
+			String numberOfCopies = textNumberOfCopy.getText().toString();
+			BookTableController bc = new BookTableController();
+			Book book = bc.getSelectedBook();
+			Book updatedBook = null;
+			
+			SystemController controller = new SystemController();
+			for (int i = 0; i < Integer.parseInt(numberOfCopies); i++) {
+				try {
+					updatedBook = controller.addBookCopy(book.getIsbn());	
+					BookTableController bookTableController = new BookTableController();
+					bookTableController.clearSubView();
+					
+				} catch (LibrarySystemException e) {
+					e.printStackTrace();
+				}
 			}
+			bc.changeCellValue(updatedBook);
+			
+		} catch (RuleException e1) {
+			Alert alert = new Alert(AlertType.ERROR, e1.getMessage());
+			alert.show();
 		}
-		bc.changeCellValue(updatedBook);
+		
+		
 		
 //		try {
 //			Book updatedBook = controller.addBookCopy(book.getIsbn());

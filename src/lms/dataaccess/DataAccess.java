@@ -5,7 +5,6 @@ import java.util.HashMap;
 import lms.business.Book;
 import lms.business.CheckoutRecord;
 import lms.business.LibraryMember;
-import lms.business.LibrarySystemException;
 
 
 
@@ -16,7 +15,10 @@ public interface DataAccess {
 	public Book searchBook(String isbn);
 	///////save methods
 	public void saveNewMember(LibraryMember member);
+	public void saveNewCheckoutRecord(CheckoutRecord record);
 	//public void updateMember(LibraryMember member);
+	public CheckoutRecord searchCheckoutRecord(String memberId);
+	public boolean isMemberExist(String memberId);
 	
 	//save new book
 	public void saveNewBook(Book book);
