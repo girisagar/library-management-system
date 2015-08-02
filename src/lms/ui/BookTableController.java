@@ -26,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import lms.business.Book;
@@ -106,7 +107,7 @@ public class BookTableController implements Initializable {
 	}
 
 	@FXML
-	protected void handleAddBookClickListener(ActionEvent event) {
+	protected void handleAddBookClickListener(MouseEvent event) {
 		Parent root;
 		try {
 			// InterfaceController controller = new InterfaceController();
@@ -133,7 +134,7 @@ public class BookTableController implements Initializable {
 	}
 
 	@FXML
-	void handleBookSearchAction(ActionEvent event) {
+	void handleBookSearchAction(MouseEvent event) {
 		String isbn = textSearch.getText().toString();
 		// DataAccess da = new DataAccessFacade();
 		SystemController controller = new SystemController();

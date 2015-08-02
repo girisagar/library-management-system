@@ -3,11 +3,9 @@ package lms.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lms.business.LibraryMember;
 import lms.dataaccess.DataAccess;
@@ -73,7 +72,7 @@ public class MemberTableController implements Initializable {
 	}
 
 	@FXML
-	protected void handleAddMemberClickListener(ActionEvent event) {
+	protected void handleAddMemberClickListener(MouseEvent event) {
 		Parent member;
 		System.out.println("inside member click");
 		try {

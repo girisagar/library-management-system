@@ -1,7 +1,6 @@
 package lms.ui;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lms.business.LoginException;
 import lms.business.SystemController;
@@ -23,8 +23,8 @@ public class LoginController extends Application {
 		@FXML private TextField userName;
 		@FXML private PasswordField passwordField;
 
-	    @FXML
-	    private Button signInButton;
+//	    @FXML
+//	    private Button signInButton;
 		
 	    @Override
 	    public void start(Stage stage) throws Exception {
@@ -45,7 +45,7 @@ public class LoginController extends Application {
 	    }
 	    
 	    @FXML
-		protected void handleLoginSubmitButtonAction(ActionEvent event) {
+		protected void handleLoginSubmitButtonAction(MouseEvent event) {
 			controller = new SystemController();
 			// System.out.println(userName.getText().toString());
 			LoginController loginForm = new LoginController();
@@ -59,9 +59,9 @@ public class LoginController extends Application {
 							.getText().toString());
 					if (controller.currentAuth != null) {
 						
-						Stage stage = (Stage) signInButton.getScene().getWindow();
+						Stage stage = (Stage) userName.getScene().getWindow();
 						
-						//Show the MainWindow
+//						//Show the MainWindow
 						Parent mainParent = FXMLLoader.load(getClass().getResource("fxml/MainContainer.fxml"));
 				        Stage mainStage = new Stage();
 				        mainStage.setTitle("Login");

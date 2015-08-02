@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
@@ -16,16 +18,20 @@
                <children>
       				<HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="600.0">
       					<children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="338.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="349.0">
                            <children>
-            						<Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAddBookClickListener" text="Add New Book">
-            							<cursor>
-            								<Cursor fx:constant="DEFAULT" />
-            							</cursor>
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-            						</Button>
+                              <Label onMouseClicked="#handleAddBookClickListener" text="Add Book">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleAddBookClickListener" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imgs/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <TextField fx:id="textSearch" promptText="Search Book with ISBN">
@@ -33,18 +39,22 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleBookSearchAction" prefHeight="25.0" prefWidth="95.0" text="Search">
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin>
-                        </Button>
+                        <Label blendMode="DARKEN" onMouseClicked="#handleBookSearchAction" text="Search">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleBookSearchAction" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
       					</children>
       					<opaqueInsets>
       						<Insets />
       					</opaqueInsets>
-      					<effect>
-      						<DropShadow color="#27e44d" height="38.79" radius="22.6025" width="53.62" />
-      					</effect>
       					<cursor>
       						<Cursor fx:constant="DEFAULT" />
       					</cursor>
@@ -54,9 +64,9 @@
       						<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
       						<TableColumn fx:id="bookTitle" prefWidth="75.0" text="Title" />
       
-                  						<TableColumn fx:id="author" prefWidth="143.0" text="Author" />
-      						<TableColumn fx:id="copies" minWidth="7.0" prefWidth="107.0" text="Copies" />
-      						<TableColumn fx:id="maxCheckout" prefWidth="199.0" text="Max Checkout Length" />
+                  						<TableColumn fx:id="author" prefWidth="102.0" text="Author" />
+      						<TableColumn fx:id="copies" minWidth="7.0" prefWidth="59.0" text="Copies" />
+      						<TableColumn fx:id="maxCheckout" prefWidth="163.0" text="Max Checkout Length" />
       
                   					</columns>
       					<cursor>

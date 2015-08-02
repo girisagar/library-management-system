@@ -40,20 +40,47 @@
                      <children>
                 <Label id="book" fx:id="labelBook" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
                   <font>
-                    <Font size="24.0" fx:id="x1" />
+                    <Font size="16.0" fx:id="x1" />
                   </font>
                   <FlowPane.margin>
                     <Insets left="10.0" fx:id="x2" />
                   </FlowPane.margin>
+                           <graphic>
+                              <ImageView id="imgBook" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/book.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                 </Label>
                 <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
                   <FlowPane.margin>
                     <Insets left="5.0" right="5.0" fx:id="x3" />
                   </FlowPane.margin>
                 </Separator>
-                <Label id="member" fx:id="labelMember" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
+                <Label id="member" fx:id="labelMember" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView id="imgBook" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/both.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Label>
                 <Separator prefWidth="180.0" FlowPane.margin="$x3" />
-                <Label id="checkout" fx:id="labelCheckout" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x1" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2" />
+                <Label id="checkout" fx:id="labelCheckout" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView id="imgBook" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/checkout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Label>
                 <Separator prefWidth="180.0" FlowPane.margin="$x3" />
                      </children>
                      <padding>
@@ -64,18 +91,32 @@
                      <children>
                         <Label id="book" fx:id="labelBook1" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Books" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
                            <font>
-                              <Font size="24.0" fx:id="x11" />
+                              <Font size="18.0" fx:id="x11" />
                            </font>
                            <FlowPane.margin>
                               <Insets left="10.0" fx:id="x21" />
                            </FlowPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/book.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
                         <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
                            <FlowPane.margin>
                               <Insets left="5.0" right="5.0" fx:id="x31" />
                            </FlowPane.margin>
                         </Separator>
-                        <Label id="member" fx:id="labelMember1" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x11" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x21" />
+                        <Label id="member" fx:id="labelMember1" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" font="$x11" onMouseClicked="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Members" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false" FlowPane.margin="$x21">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/both.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Label>
                         <Separator prefWidth="180.0" FlowPane.margin="$x31" />
                      </children>
                      <padding>
@@ -84,13 +125,20 @@
                   </VBox>
                   <VBox fx:id="vBoxLibrarian" layoutX="10.0" layoutY="10.0" visible="false">
                      <children>
-                        <Label id="c" fx:id="labelCheckout2" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
+                        <Label id="checkout" fx:id="labelCheckout2" alignment="CENTER_LEFT" cache="false" cacheHint="DEFAULT" depthTest="INHERIT" onMousePressed="#handleLabelClickListener" prefHeight="51.0" prefWidth="157.0" text="Checkout" textAlignment="LEFT" textFill="WHITE" underline="false" wrapText="false">
                            <font>
-                              <Font size="24.0" fx:id="x12" />
+                              <Font size="18.0" fx:id="x12" />
                            </font>
                            <FlowPane.margin>
                               <Insets left="10.0" fx:id="x22" />
                            </FlowPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/checkout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
                         <Separator halignment="CENTER" opacity="0.5" orientation="HORIZONTAL" prefWidth="180.0">
                            <FlowPane.margin>
@@ -116,21 +164,45 @@
                 <URL value="@../stylesheets/maincontainer.css" />
               </stylesheets>
                      <children>
-                        <ImageView fx:id="imageUser" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="labelUser" alignment="BASELINE_LEFT" layoutX="54.0" layoutY="28.0" text="Auth Level" textFill="WHITE">
+                        <ImageView fx:id="imageUser" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="labelUser" alignment="BASELINE_LEFT" layoutX="54.0" layoutY="25.0" text="Auth Level" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <Pane layoutX="503.0" layoutY="21.0" onMouseClicked="#handleLogoutListener" AnchorPane.rightAnchor="14.0">
+                           <children>
+                              <ImageView fx:id="imageLogout" fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="66.0" />
+                              <Label fx:id="labelLogout" layoutX="31.0" layoutY="5.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
             </AnchorPane>
             <AnchorPane prefHeight="72.0" prefWidth="200.0" styleClass="header-logo" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <children>
-                <Label font="$x1" layoutX="33.0" layoutY="20.0" text="Project Logo" textFill="#dfdfdf" />
-              </children>
               <stylesheets>
                 <URL value="@../stylesheets/maincontainer.css" />
               </stylesheets>
+                     <children>
+                        <ImageView fx:id="projectImage" fitHeight="48.0" fitWidth="48.0" layoutX="4.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane layoutX="57.0" layoutY="20.0" prefHeight="45.0" prefWidth="144.0">
+                           <children>
+                              <Label layoutY="21.0" prefHeight="19.0" prefWidth="145.0" text="Management System" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutY="3.0" prefHeight="11.0" prefWidth="75.0" text="Library" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
             </AnchorPane>
           </children>
         </AnchorPane>

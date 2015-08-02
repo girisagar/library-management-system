@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import lms.business.SystemController;
 
 public class InterfaceController implements Initializable{
@@ -39,6 +41,12 @@ public class InterfaceController implements Initializable{
 	
 	@FXML
 	private VBox vBoxLibrarian;
+	
+	@FXML
+	private ImageView projectImage;
+	
+	@FXML
+	private ImageView imageLogout;
 
 	@FXML
 	protected void handleSubmitButtonAction(ActionEvent event) {
@@ -61,6 +69,33 @@ public class InterfaceController implements Initializable{
 
 		// System.out.println("Member Submit button pressed");
 	}
+	
+	@FXML
+    void handleLogoutListener(MouseEvent event) {
+		//logout the appliation
+		Stage stage = (Stage) mainContent.getScene().getWindow();
+		
+		SystemController controller = new SystemController();
+		controller.currentAuth = null;
+		
+		//Show the MainWindow
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Login.fxml"));
+		Parent loginParent;
+		try {
+			loginParent = (Parent) fxmlLoader.load();
+			Stage mainStage = new Stage();
+	        mainStage.setTitle("Login");
+//	        mainStage.setFullScreen(true);
+	        mainStage.setScene(new Scene(loginParent));
+	        mainStage.show();
+	        
+	        stage.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+    }
 
 	@FXML
 	protected void handleLabelClickListener(MouseEvent event) {
@@ -174,7 +209,15 @@ public class InterfaceController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Image image;
+		Image pImage = new Image("/lms/ui/imgs/project.png");
+		projectImage.setImage(pImage);
+		
+		Image userImage;
+		
+		//set the logout image
+		Image logoutImage = new Image("/lms/ui/imgs/logout.png");
+		imageLogout.setImage(logoutImage);
+		
 		SystemController controller = new SystemController();
 		System.out.println(controller.currentAuth.toString());
 
@@ -182,21 +225,21 @@ public class InterfaceController implements Initializable{
 		//get the image for the user
 		switch (controller.currentAuth.toString()) {
 		case "ADMIN" :
-			image = new Image("/lms/ui/imgs/admin.png");
-			imageUser.setImage(image);
+			userImage = new Image("/lms/ui/imgs/admin.png");
+			imageUser.setImage(userImage);
 			
 			vBoxAdmin.setVisible(true);
 			break;
 		
 		case "LIBRARIAN" :
-			image = new Image("/lms/ui/imgs/librarian.png");
-			imageUser.setImage(image);
+			userImage = new Image("/lms/ui/imgs/librarian.png");
+			imageUser.setImage(userImage);
 			vBoxLibrarian.setVisible(true);
 			break;
 		
 		case "BOTH" :
-			image = new Image("/lms/ui/imgs/both.png");
-			imageUser.setImage(image);
+			userImage = new Image("/lms/ui/imgs/both.png");
+			imageUser.setImage(userImage);
 			vBoxBoth.setVisible(true);
 			break;
 		
