@@ -1,5 +1,7 @@
 package lms.business;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import lms.dataaccess.DataAccess;
@@ -23,4 +25,5 @@ public interface ControllerInterface {
 	public LibraryMember searchMember(String memberId) throws LibrarySystemException;
 	public BookCopy searchAvailablBookCopy(String isbn) throws LibrarySystemException;
 	public CheckoutRecord getCheckoutRecord(String memberId) throws LibrarySystemException;
+	public HashMap<String, HashMap<LibraryMember, CheckoutRecordEntry>> searchOverdue(String isbn) throws LibrarySystemException;
 }
