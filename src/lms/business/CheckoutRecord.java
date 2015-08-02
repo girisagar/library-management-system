@@ -1,30 +1,30 @@
 package lms.business;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class CheckoutRecord implements Serializable  {
 	private LibraryMember libraryMember;
-	private CheckoutRecordEntry[] checkoutRecordEntries ;
+
+	private ArrayList<CheckoutRecordEntry> checkoutRecordEntries;
 	
 	public CheckoutRecord(LibraryMember libraryMember, CheckoutRecordEntry checkoutRecordEntry) {
 		super();
+		checkoutRecordEntries = new ArrayList<CheckoutRecordEntry>();
 		this.libraryMember = libraryMember;
-		checkoutRecordEntries = new CheckoutRecordEntry[]{checkoutRecordEntry};
+		checkoutRecordEntries.add(checkoutRecordEntry);
 	}
 	
 	public void addCheckoutRecordEntry(CheckoutRecordEntry checkoutRecordEntry){		
-		CheckoutRecordEntry[] newArr = new CheckoutRecordEntry[checkoutRecordEntries.length + 1];
-		System.arraycopy(checkoutRecordEntries, 0, newArr, 0, checkoutRecordEntries.length);
-		newArr[checkoutRecordEntries.length] = checkoutRecordEntry;
-		checkoutRecordEntries = newArr;
+		checkoutRecordEntries.add(checkoutRecordEntry);
 	}
 	
-
-	public LibraryMember getLibraryMember() {
-		return libraryMember;
+	public LibraryMember getLibraryMember(){
+		return this.libraryMember;
 	}
 
-	public CheckoutRecordEntry[] getCheckoutRecordEntries() {
+	public ArrayList<CheckoutRecordEntry> getCheckoutRecordEntries() {
 		return checkoutRecordEntries;
 	}
+	
 }

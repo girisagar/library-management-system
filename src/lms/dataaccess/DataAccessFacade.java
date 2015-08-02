@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import lms.business.Book;
+import lms.business.BookCopy;
 import lms.business.CheckoutRecord;
 import lms.business.CheckoutRecordEntry;
 import lms.business.LibraryMember;
@@ -84,7 +85,7 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		return false;
 	}
 	
-	public boolean isRecordExists(String memberId){
+	public boolean isCheckoutRecordExists(String memberId){
 		HashMap<String, CheckoutRecord> recordMap =  readCheckoutRecordMap();
 		if(recordMap.containsKey(memberId)){
 			return true;
@@ -269,9 +270,31 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		if(memberMap.containsKey(memberId)) {
 			return true;
 		}
-		
 		return false;
 	}
 
+	@Override
+	public void saveCheckoutRecord(CheckoutRecord record) {		
+		HashMap<String, CheckoutRecord> memberRecord = readCheckoutRecordMap();
+		String id = record.getLibraryMember().getMemberId()+"";
+		memberRecord.put(id, record);
+		saveToStorage(StorageType.RECORD, memberRecord);
+	}
 
+//	@Override
+//	public BookCopy searchAvailablBookCopy(String isbn) {
+//		HashMap<String, Book> booksMap =  recordMap();
+//		if(booksMap.containsKey(isbn)){
+//			Book book = booksMap.get(isbn);
+//			
+//			for(BookCopy copy: book.getCopies()){
+//				if(copy.isAvailable()==true){
+//					copy.changeAvailability();
+//					return copy;
+//				}
+//			}
+//			saveNewBook(book);
+//		}
+//		return null;
+//	}
 }

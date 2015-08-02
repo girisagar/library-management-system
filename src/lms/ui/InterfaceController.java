@@ -181,6 +181,19 @@ public class InterfaceController {
 				e.printStackTrace();
 			}
 			break;
+		case "checkout":
+			try {
+				mainContent.getChildren().clear();
+				MemberUi memberUi = new MemberUi();
+				Parent root2 = FXMLLoader.load(getClass().getResource(
+						"fxml/CheckoutRecord.fxml"));
+				mainContent.getChildren().add(root2);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
 
 		default:
 			break;

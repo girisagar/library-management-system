@@ -16,8 +16,7 @@ import lms.business.LibraryMember;
 public class TestData {
 	// List<LibraryMember> members = new ArrayList<LibraryMember>();
 	@SuppressWarnings("serial")
-	List<Address> addresses = new ArrayList<Address>() {
-		{
+	List<Address> addresses = new ArrayList<Address>() {		{
 			add(new Address("101 S. Main", "Fairfield", "IA", "52556"));
 			add(new Address("51 S. George", "Georgetown", "MI", "65434"));
 			add(new Address("23 Headley Ave", "Seville", "Georgia", "41234"));
@@ -72,23 +71,23 @@ public class TestData {
 	};
 
 	 List<CheckoutRecord> allRecords = new ArrayList<CheckoutRecord>() {
-		 {		 
-			 add(new CheckoutRecord(
-					 getAllMembers().get(0),
-					 new CheckoutRecordEntry(
-							 getAllBooks().get(0).getCopy(1),
-							 LocalDate.of(2015, 7,1), LocalDate.of(2015, 7, 21)
-							 )
-					 )
-				);
-			 
-			 add(new CheckoutRecord(getAllMembers().get(1),
-					 new CheckoutRecordEntry(getAllBooks().get(1).getCopy(1), 
-					 LocalDate.of(2015, 7,12), LocalDate.of(2015, 7, 18))));
-			 
-			 add(new CheckoutRecord(getAllMembers().get(0),
-					 new CheckoutRecordEntry(getAllBooks().get(2).getCopy(1),
-					 LocalDate.of(2015, 7,30), LocalDate.of(2015, 8, 20))));
+		 {	
+//			 add(new CheckoutRecord(
+//					 getAllMembers().get(0),
+//					 new CheckoutRecordEntry(
+//							 getAllBooks().get(0).getCopy(2),
+//							 LocalDate.of(2015, 7,1), LocalDate.of(2015, 7, 21)
+//						)
+//					 )
+//				);
+//			 
+//			 add(new CheckoutRecord(getAllMembers().get(1),
+//					 new CheckoutRecordEntry(getAllBooks().get(1).getCopy(2), 
+//					 LocalDate.of(2015, 7,12), LocalDate.of(2015, 7, 18))));
+//			 
+//			 add(new CheckoutRecord(getAllMembers().get(2),
+//					 new CheckoutRecordEntry(getAllBooks().get(2).getCopy(2),
+//					 LocalDate.of(2015, 7,30), LocalDate.of(2015, 8, 20))));
 		 }
 	 };
 	 
@@ -141,7 +140,7 @@ public class TestData {
 	}
 
 	public void checkoutRecordData() {
-		allRecords.get(0).addCheckoutRecordEntry(allEntries.get(0));
+//		allRecords.get(0).addCheckoutRecordEntry(allEntries.get(0));
 		DataAccessFacade.loadCheckoutRecordMap(allRecords);
 	}
 

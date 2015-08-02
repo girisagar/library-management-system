@@ -26,5 +26,13 @@ public class CheckoutRecordEntry implements Serializable{
 	public LocalDate getDueDate() {
 		return dueDate;
 	}
+
+	public String getBookTitle() {
+		return bookCopy.getBook().getTitle();
+	}
+	
+	public String getBookIsbn() {
+		return bookCopy.getBook().getIsbn();
+	}	
 	
 }

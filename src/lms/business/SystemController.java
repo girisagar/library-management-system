@@ -1,11 +1,8 @@
 package lms.business;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
-
 import lms.dataaccess.Auth;
 import lms.dataaccess.DataAccess;
 import lms.dataaccess.DataAccessFacade;
@@ -80,6 +77,54 @@ public class SystemController implements ControllerInterface {
 		return da.searchBook(isbn);
 	}
 
+	@Override
+	public LibraryMember searchMember(String memberId) throws LibrarySystemException {
+		DataAccess da = new DataAccessFacade();
+		if(!da.isMemberExist(memberId)) {
+			throw new LibrarySystemException("Book for this Isbn not available");
+		}
+		return da.searchMember(memberId);
+	}
+	
+	@Override
+	public BookCopy searchAvailablBookCopy(String isbn) throws LibrarySystemException {
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, Book> booksMap =  da.readBooksMap();
+		
+		if(booksMap.containsKey(isbn)){
+			Book book = booksMap.get(isbn);
+			
+			for(BookCopy copy: book.getCopies()){
+				if(copy.isAvailable()==true){
+					copy.changeAvailability();
+					book.updateCopies(copy);
+					da.saveNewBook(book);
+					System.out.println(copy.isAvailable());
+					return copy;
+				}
+			}
+			throw new LibrarySystemException("No Copy for this Book is available right now");
+		}else{
+			throw new LibrarySystemException("Book for this Isbn not available");
+		}
+	}
+	
+	public CheckoutRecord addCheckoutRecordEntry(LibraryMember member, CheckoutRecordEntry entry){
+		DataAccess da = new DataAccessFacade();
+		String memberId = member.getMemberId().toString();
+		CheckoutRecord record = null;
+		if(da.isCheckoutRecordExists(memberId)){
+			System.out.println("yes");
+			record = da.searchCheckoutRecord(memberId);
+			record.addCheckoutRecordEntry(entry);
+		}else{
+			record = new CheckoutRecord(member, entry);
+		}
+		da.saveCheckoutRecord(record);
+		return record;
+	}
+	
+	
 	/**
 <<<<<<< HEAD
 	 * Looks up book by isbn to see if it exists, throw exceptioni. Else add the
@@ -116,11 +161,19 @@ public class SystemController implements ControllerInterface {
 	public static void main(String[] args) throws LibrarySystemException {
 
 	}
+	
 
 	@Override
-	public void checkoutBook(String memberId, String isbn) throws LibrarySystemException {
-		// TODO Auto-generated method stub
-
+	public CheckoutRecord checkoutBook(String memberId, String isbn) throws LibrarySystemException {
+		LibraryMember member = searchMember(memberId);
+		Book book = searchBook(isbn);
+		BookCopy bookCopy = searchAvailablBookCopy(isbn);
+		
+		CheckoutRecordEntry entry = new CheckoutRecordEntry(bookCopy,
+									LocalDate.now(),
+									LocalDate.now().plusDays(book.getMaxCheckoutLength()));
+		CheckoutRecord updatedRecord = addCheckoutRecordEntry(member, entry);
+		return updatedRecord;		
 	}
 	
 	public CheckoutRecord getCheckoutRecord(String memberId) {
