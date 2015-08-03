@@ -178,8 +178,6 @@ public class BookTableController implements Initializable {
 						e.printStackTrace();
 					}
 					
-					System.out.println(selectedBook);
-					
 				}
 			});
 		}

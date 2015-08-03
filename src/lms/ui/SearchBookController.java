@@ -30,20 +30,6 @@ public class SearchBookController implements Initializable {
 	@FXML
 	protected void textChangeListener() {
 		
-		System.out.println(searchBookTextField.getText().toUpperCase());
-		
-		
-		
-		try {
-			
-	//		System.out.println(bb);
-		} catch (Exception e) {
-			System.out.println("error");
-		}
-		
-	
-		/*listItems.add(bb.getIsbn());
-		searchBookListView.setItems(listItems);*/
 	}
 
 }

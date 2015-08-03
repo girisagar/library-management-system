@@ -53,14 +53,11 @@ public class InterfaceController implements Initializable {
 	@FXML
 	protected void handleSubmitButtonAction(ActionEvent event) {
 		// actiontarget.setText("Sign in button pressed");
-		System.out.println("Submit button pressed");
 	}
 
 	@FXML
 	protected void handleAddMemberButtonAction(ActionEvent event) {
 		// actiontarget.setText("Sign in button pressed");
-
-		System.out.println("Member Submit button pressed");
 	}
 
 	@FXML
@@ -224,7 +221,6 @@ public class InterfaceController implements Initializable {
 		imageLogout.setImage(logoutImage);
 
 		SystemController controller = new SystemController();
-		System.out.println(controller.currentAuth.toString());
 
 		labelUser.setText(controller.currentAuth.toString());
 		// get the image for the user
