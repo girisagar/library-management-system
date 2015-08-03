@@ -195,18 +195,6 @@ public class SystemController implements ControllerInterface {
 		}		
 	}
 	
-	public ArrayList<CheckoutRecordEntry> getOverdueEntryFromRecord(CheckoutRecord record,String isbn){
-		ArrayList<CheckoutRecordEntry> matchedEntry = new ArrayList<CheckoutRecordEntry>();
-		for(CheckoutRecordEntry entry: record.getCheckoutRecordEntries()){
-			if(entry.getBookCopy().getBook().getIsbn().equals(isbn)){
-				if(entry.getDueDate().isBefore(LocalDate.now())){
-					matchedEntry.add(entry);
-				}
-			}
-		}
-		return matchedEntry;
-	}
-
 	@Override
 	public HashMap<String, HashMap<LibraryMember, CheckoutRecordEntry>> searchOverdue(String isbn) throws LibrarySystemException {
 		Book book = searchBook(isbn);
@@ -217,22 +205,20 @@ public class SystemController implements ControllerInterface {
 		int count = 0;
 		HashMap<LibraryMember, CheckoutRecordEntry> temp;
 		for(Map.Entry<String, CheckoutRecord> record: checkoutRecordMap.entrySet()){
-          for(CheckoutRecordEntry entry: record.getValue().getCheckoutRecordEntries()){        	  
-        	 for(CheckoutRecordEntry entry1: record.getValue().getCheckoutRecordEntries()){
-     			if(entry1.getBookCopy().getBook().getIsbn().equals(isbn)){
+          for(CheckoutRecordEntry entry: record.getValue().getCheckoutRecordEntries()){
+     			if(entry.getBookCopy().getBook().getIsbn().toString().equals(isbn)){
      				temp = new HashMap<>();
-     				count++;
-     				if(entry1.getDueDate().isAfter(LocalDate.now())){
+     				if(entry.getDueDate().isAfter(LocalDate.now())){
      					count ++;
-     					temp.put(record.getValue().getLibraryMember(), entry1);
+     					temp.put(record.getValue().getLibraryMember(), entry);
      					overdueEntries.put(count+"", temp);
      				}
      			}
-     		}
           }
-        }
-		
-		System.out.println(overdueEntries);
+        }		
+		for(String e: overdueEntries.keySet()){
+			System.out.println(e);
+		}
 		return overdueEntries;
 	}
 
