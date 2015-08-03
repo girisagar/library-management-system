@@ -2,15 +2,11 @@ package lms.ui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.Map.Entry;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -25,8 +21,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Callback;
-import lms.business.Book;
 import lms.business.CheckoutRecordEntry;
 import lms.business.ControllerInterface;
 import lms.business.LibraryMember;
@@ -35,12 +32,22 @@ import lms.business.SystemController;
 
 public class CheckoutRecordController implements Initializable {
 	private static AnchorPane addContent;
+	private static AnchorPane tableContent;
+	private static TextFlow textFlow;
+	
 	public static TableView<CheckoutRecordEntry> entryListTable;
 	public static TableView<Entry<String,  HashMap<LibraryMember, CheckoutRecordEntry>>> overdueListTable;
 	
     @FXML
     private URL location;
+    
+    
+    @FXML
+    private AnchorPane addTableContent;
 
+    @FXML
+    private TextFlow textPrintFlow;
+    
     @FXML
     private AnchorPane addFormContent;
 
@@ -84,6 +91,7 @@ public class CheckoutRecordController implements Initializable {
     void handlePrintCheckoutClickListener(ActionEvent event) {
     	Parent root;
 		try {
+			setPrintCheckoutVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/PrintCheckoutRecord.fxml"));
 			addFormContent.setStyle("-fx-background-color: white;");
@@ -113,6 +121,9 @@ public class CheckoutRecordController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		entryListTable = bookListTableView;
 		overdueListTable = overdueTableView;
+		tableContent = addTableContent;
+		textFlow = textPrintFlow;
+		
 		setChekoutVisible();
 		isbn.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookIsbn"));
 		bookTitle.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookTitle"));
@@ -240,16 +251,19 @@ public class CheckoutRecordController implements Initializable {
 //	        return table;
 	}
 	public void setOverdueVisible(){
-		entryListTable.setVisible(false);
-		entryListTable.setMaxHeight(0);
-		overdueListTable.setVisible(true);
-		overdueListTable.setMaxHeight(350);
+		tableContent.getChildren().clear();
+		overdueListTable.setMaxHeight(450);
+		tableContent.getChildren().add(overdueListTable);
 	}
 	
 	public void setChekoutVisible(){
-		overdueListTable.setVisible(false);
-		overdueListTable.setMaxHeight(0);
-		entryListTable.setVisible(true);
-		entryListTable.setMaxHeight(350);
+		tableContent.getChildren().clear();
+		entryListTable.setMaxHeight(450);
+		tableContent.getChildren().add(entryListTable);
+	}
+	
+	
+	public void setPrintCheckoutVisible(){
+		tableContent.getChildren().clear();
 	}
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
@@ -55,32 +56,37 @@
 								<Cursor fx:constant="DEFAULT" />
 							</cursor>
 						</HBox>
-						<TableView fx:id="bookListTableView" prefHeight="200" prefWidth="350.0">
-							<columns>
-								<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
-								<TableColumn fx:id="bookTitle" prefWidth="160.0" text="Title" />
-								<TableColumn fx:id="copies" minWidth="7.0" prefWidth="87.0" text="Copy Number" />
-								<TableColumn fx:id="checkOutDate" prefWidth="140.0" text="Check Out Date" />
-								<TableColumn fx:id="dueDate" prefWidth="140.0" text="Due Date" />
-							</columns>
-							<cursor>
-								<Cursor fx:constant="DEFAULT" />
-							</cursor>
-						</TableView>
-						
-						<TableView fx:id="overdueTableView" prefHeight="200" prefWidth="350.0">
-							<columns>
-								<TableColumn fx:id="dIsbn" prefWidth="50.0" text="ISBN" />
-								<TableColumn fx:id="dBookTitle" prefWidth="150.0" text="Title" />
-								<TableColumn fx:id="dCopyNumber" minWidth="7.0" prefWidth="90.0" text="Copy No." />
-								<TableColumn fx:id="dCheckOutDate" prefWidth="120.0" text="Checkout Date" />
-								<TableColumn fx:id="dDueDate" prefWidth="100.0" text="Due Date" />
-								<TableColumn fx:id="memberName" prefWidth="100.0" text="Member" />
-							</columns>
-							<cursor>
-								<Cursor fx:constant="DEFAULT" />
-							</cursor>
-						</TableView>
+                  <AnchorPane fx:id="addTableContent" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+      						
+            				<TableView fx:id="overdueTableView" prefHeight="344.0" prefWidth="600.0">
+      							<columns>
+      								<TableColumn fx:id="dIsbn" prefWidth="50.0" text="ISBN" />
+      								<TableColumn fx:id="dBookTitle" prefWidth="150.0" text="Title" />
+      								<TableColumn fx:id="dCopyNumber" minWidth="7.0" prefWidth="90.0" text="Copy No." />
+      								<TableColumn fx:id="dCheckOutDate" prefWidth="120.0" text="Checkout Date" />
+      								<TableColumn fx:id="dDueDate" prefWidth="100.0" text="Due Date" />
+      								<TableColumn fx:id="memberName" prefWidth="100.0" text="Member" />
+      							</columns>
+      							<cursor>
+      								<Cursor fx:constant="DEFAULT" />
+      							</cursor>
+      						</TableView>
+            				<TableView fx:id="bookListTableView" prefHeight="344.0" prefWidth="600.0">
+            							<columns>
+            								<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
+            								<TableColumn fx:id="bookTitle" prefWidth="160.0" text="Title" />
+            								<TableColumn fx:id="copies" minWidth="7.0" prefWidth="87.0" text="Copy Number" />
+            								<TableColumn fx:id="checkOutDate" prefWidth="140.0" text="Check Out Date" />
+            								<TableColumn fx:id="dueDate" prefWidth="140.0" text="Due Date" />
+            							</columns>
+            							<cursor>
+            								<Cursor fx:constant="DEFAULT" />
+            							</cursor>
+            				</TableView>
+                        <TextFlow id="textPrintFlow" prefHeight="349.0" prefWidth="600.0" />
+                     </children>
+                  </AnchorPane>
 						
 					</children>
 					<BorderPane.margin>
