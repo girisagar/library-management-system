@@ -38,7 +38,6 @@ public class SystemController implements ControllerInterface {
 			String street, String city, String state, String zip) throws LibrarySystemException {
 		
 		LibraryMember member = new LibraryMember(memberId, firstName, lastName, email, phone, street, city, state, zip);
-		
 		DataAccess da = new DataAccessFacade();
 		
 		if(!da.isMemberExist(member)) {
@@ -176,7 +175,7 @@ public class SystemController implements ControllerInterface {
 									LocalDate.now(),
 									LocalDate.now().plusDays(book.getMaxCheckoutLength()));
 		CheckoutRecord updatedRecord = addCheckoutRecordEntry(member, entry);
-		return updatedRecord;		
+		return updatedRecord;
 	}
 	
 	public CheckoutRecord getCheckoutRecord(String memberId) throws LibrarySystemException{
@@ -208,7 +207,7 @@ public class SystemController implements ControllerInterface {
           for(CheckoutRecordEntry entry: record.getValue().getCheckoutRecordEntries()){
      			if(entry.getBookCopy().getBook().getIsbn().toString().equals(isbn)){
      				temp = new HashMap<>();
-     				if(entry.getDueDate().isAfter(LocalDate.now())){
+     				if(entry.getDueDate().isBefore(LocalDate.now())){
      					count ++;
      					temp.put(record.getValue().getLibraryMember(), entry);
      					overdueEntries.put(count+"", temp);
