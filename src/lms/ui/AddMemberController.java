@@ -40,7 +40,7 @@ public class AddMemberController {
 	private TextField textState;
 
 	@FXML
-	private PasswordField textLastName;
+	private TextField textLastName;
 
 	@FXML
 	private TextField textCity;
