@@ -42,6 +42,9 @@ public class PrintCheckoutRecordController {
 						.toString(), entry.getDueDate().toString());
 			}
 			System.out.format("+-----------------------------------+-----------------+------------+%n");
+			CheckoutRecordController ctr = new CheckoutRecordController(); 
+			ctr.clearTableSpace();
+			
 		} catch (LibrarySystemException e) {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
 			alert.show();
