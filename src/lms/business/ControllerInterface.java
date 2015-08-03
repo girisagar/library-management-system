@@ -24,6 +24,6 @@ public interface ControllerInterface {
 	public Book searchBook(String isbn) throws LibrarySystemException;
 	public LibraryMember searchMember(String memberId) throws LibrarySystemException;
 	public BookCopy searchAvailablBookCopy(String isbn) throws LibrarySystemException;
-	public CheckoutRecord getCheckoutRecord(String memberId) throws LibrarySystemException;
+	public void getCheckoutRecord(String memberId) throws LibrarySystemException;
 	public HashMap<String, HashMap<LibraryMember, CheckoutRecordEntry>> searchOverdue(String isbn) throws LibrarySystemException;
 }

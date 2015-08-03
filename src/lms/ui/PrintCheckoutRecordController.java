@@ -31,19 +31,11 @@ public class PrintCheckoutRecordController {
 		ControllerInterface controller = new SystemController();
 		
 		try {
-			CheckoutRecord record = controller.getCheckoutRecord(memberId);
-			String leftAlignFormat = "| %-33s | %-15s | %-10s |%n";
-
-			System.out.format("+-----------------------------------+-----------------+------------+%n");
-			System.out.printf("| Book Title                        | Checkout Date   | Due Date   |%n");
-			System.out.format("+-----------------------------------+-----------------+------------+%n");
-			for (CheckoutRecordEntry entry : record.getCheckoutRecordEntries()) {
-				System.out.format(leftAlignFormat, entry.getBookCopy().getBook().getTitle(), entry.getCheckoutDate()
-						.toString(), entry.getDueDate().toString());
-			}
-			System.out.format("+-----------------------------------+-----------------+------------+%n");
+			controller.getCheckoutRecord(memberId);
 			CheckoutRecordController ctr = new CheckoutRecordController(); 
 			ctr.clearTableSpace();
+			ctr.clearSubView();
+			
 			
 		} catch (LibrarySystemException e) {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());

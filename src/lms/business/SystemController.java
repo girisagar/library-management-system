@@ -176,12 +176,23 @@ public class SystemController implements ControllerInterface {
 		return updatedRecord;
 	}
 	
-	public CheckoutRecord getCheckoutRecord(String memberId) throws LibrarySystemException{
-		DataAccess da = new DataAccessFacade();
-		HashMap<String, CheckoutRecord> checkoutRecords = da.readCheckoutRecordMap();
+	public void getCheckoutRecord(String memberId) throws LibrarySystemException{
+		DataAccess da = new DataAccessFacade();		
 		if(da.isMemberExist(memberId)) {
 			if(da.isCheckoutRecordExists(memberId)) {
-				return checkoutRecords.get(memberId);
+				HashMap<String, CheckoutRecord> checkoutRecords = da.readCheckoutRecordMap();
+				CheckoutRecord record = checkoutRecords.get(memberId);
+				String leftAlignFormat = "| %-33s | %-15s | %-10s |%n";
+
+				System.out.format("+-----------------------------------+-----------------+------------+%n");
+				System.out.printf("| Book Title                        | Checkout Date   | Due Date   |%n");
+				System.out.format("+-----------------------------------+-----------------+------------+%n");
+				for (CheckoutRecordEntry entry : record.getCheckoutRecordEntries()) {
+					System.out.format(leftAlignFormat, entry.getBookCopy().getBook().getTitle(), entry.getCheckoutDate()
+							.toString(), entry.getDueDate().toString());
+				}
+				System.out.format("+-----------------------------------+-----------------+------------+%n");
+				
 			}
 			else {
 				throw new LibrarySystemException("Checkout record not found for this member");
