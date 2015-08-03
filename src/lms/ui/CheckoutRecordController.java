@@ -1,11 +1,16 @@
 package lms.ui;
 
+import java.awt.TextArea;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.text.TabExpander;
+
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -21,9 +26,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.util.Callback;
+import lms.business.CheckoutRecord;
 import lms.business.CheckoutRecordEntry;
 import lms.business.ControllerInterface;
 import lms.business.LibraryMember;
@@ -260,10 +269,40 @@ public class CheckoutRecordController implements Initializable {
 		tableContent.getChildren().clear();
 		entryListTable.setMaxHeight(450);
 		tableContent.getChildren().add(entryListTable);
-	}
-	
+	}	
 	
 	public void setPrintCheckoutVisible(){
+		return;
+//		tableContent.getChildren().clear();
+//		Text newText = new Text();
+//		newText.setText(getHeader()+getFooter());
+//		VBox box = new VBox();
+//		box.getChildren().add(newText);
+//		tableContent.getChildren().add(box);
+	}
+	
+	public String getHeader(){
+		StringBuilder str = new StringBuilder();
+		str.append("+----------------------------------- +-----------------------+-----------------+\n");
+		str.append(" | Book Title                         | Checkout Date    | Due Date    |\n");
+		str.append("+----------------------------------- +-----------------------+-----------------+\n");
+		return str.toString();
+	}
+	
+	public String getFooter(){
+		StringBuilder str = new StringBuilder();
+		str.append("+----------------------------------- +-----------------------+-----------------+\n");
+		return str.toString();
+	}
+	
+	public void clearTableSpace(){
 		tableContent.getChildren().clear();
+		Text t1= new Text();
+		t1.setTextAlignment(TextAlignment.LEFT);
+		t1.setText("Please Check output in the Console");
+		HBox box = new HBox();
+		box.getChildren().add(t1);
+		t1.setStyle("-fx-color: green; -fx-font-size: 16;");
+		tableContent.getChildren().add(box);
 	}
 }
