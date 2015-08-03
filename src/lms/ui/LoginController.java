@@ -3,14 +3,15 @@ package lms.ui;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import lms.business.LoginException;
 import lms.business.SystemController;
@@ -30,9 +31,18 @@ public class LoginController extends Application {
 	    public void start(Stage stage) throws Exception {
 	        root = FXMLLoader.load(getClass().getResource("fxml/Login.fxml"));
 	        
+	        
+	        Screen screen = Screen.getPrimary();
+	        Rectangle2D bounds = screen.getVisualBounds();
+
+	        stage.setX(bounds.getMinX());
+	        stage.setY(bounds.getMinY());
+	        stage.setWidth(bounds.getWidth());
+	        stage.setHeight(bounds.getHeight());
+	        
 	        stage.setTitle("Login");
-	        stage.setScene(new Scene(root, 340, 250));
-	        stage.setFullScreen(true);
+	        stage.setScene(new Scene(root));
+//	        stage.setFullScreen(true);
 	        stage.show();
 	    }
 	    
@@ -65,8 +75,17 @@ public class LoginController extends Application {
 //						//Show the MainWindow
 						Parent mainParent = FXMLLoader.load(getClass().getResource("fxml/MainContainer.fxml"));
 				        Stage mainStage = new Stage();
+				        
+				        Screen screen = Screen.getPrimary();
+				        Rectangle2D bounds = screen.getVisualBounds();
+
+				        mainStage.setX(bounds.getMinX());
+				        mainStage.setY(bounds.getMinY());
+				        mainStage.setWidth(bounds.getWidth());
+				        mainStage.setHeight(bounds.getHeight());
+				        
 				        mainStage.setTitle("Login");
-				        mainStage.setFullScreen(true);
+//				        mainStage.setFullScreen(true);
 				        mainStage.setScene(new Scene(mainParent));
 				        mainStage.show();
 				        
