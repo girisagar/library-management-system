@@ -18,7 +18,7 @@
 					<children>
 						<HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="600.0">
 							<children>
-                        <Label onMouseClicked="#handleAddMemberClickListener" text="Add Member">
+                        <Label id="button" onMouseClicked="#handleAddMemberClickListener" stylesheets="@../stylesheets/maincontainer.css" text="Add Member">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -29,6 +29,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
                         </Label>
 							</children>
 							<opaqueInsets>
@@ -38,7 +41,7 @@
 								<Cursor fx:constant="DEFAULT" />
 							</cursor>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                        <Insets bottom="5.0" left="5.0" />
                      </VBox.margin>
 						</HBox>
 						<TableView fx:id="memberListTableView">
@@ -78,6 +81,9 @@
 							</padding>
 						</AnchorPane>
 					</center>
+               <BorderPane.margin>
+                  <Insets left="-10.0" />
+               </BorderPane.margin>
 				</BorderPane>
 			</right>
 		</BorderPane>

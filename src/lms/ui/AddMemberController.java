@@ -1,11 +1,11 @@
 package lms.ui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lms.business.LibraryMember;
 import lms.business.LibrarySystemException;
@@ -46,7 +46,14 @@ public class AddMemberController {
 	private TextField textCity;
 
 	@FXML
-	void handleAddMemberButtonAction(ActionEvent event) {
+	void handleHideMemberButtonAction(MouseEvent event) {
+		MemberTableController controller = new MemberTableController();
+		controller.clearChildren();
+	}
+	
+	
+	@FXML
+	void handleAddMemberButtonAction(MouseEvent event) {
 		AddMemberRuleSet rule = new AddMemberRuleSet();
 		
 		try {

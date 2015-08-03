@@ -74,12 +74,12 @@ public class MemberTableController implements Initializable {
 	@FXML
 	protected void handleAddMemberClickListener(MouseEvent event) {
 		Parent member;
-		System.out.println("inside member click");
 		try {
 			// InterfaceController controller = new InterfaceController();
 			addFormContent.getChildren().clear();
 			member = FXMLLoader.load(getClass().getResource("fxml/AddMember.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+//			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			// System.out.println(super.getMainContent());
 			addFormContent.getChildren().add(member);
 			addContent = addFormContent;
@@ -92,6 +92,12 @@ public class MemberTableController implements Initializable {
 	
 	public void addNewMember(LibraryMember member) {
 		this.memberTable.getItems().add(member);
+		addContent.setStyle("");
+		clearChildren();
+	}
+	
+	public void clearChildren() {
+		
 		addContent.setStyle("");
 		addContent.getChildren().clear();
 	}

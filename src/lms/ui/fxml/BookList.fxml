@@ -20,9 +20,9 @@
       					<children>
                         <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="349.0">
                            <children>
-                              <Label onMouseClicked="#handleAddBookClickListener" text="Add Book">
+                              <Label id="button" onMouseClicked="#handleAddBookClickListener" stylesheets="@../stylesheets/maincontainer.css" text="Add Book">
                                  <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleAddBookClickListener" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleAddBookClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                                        <image>
                                           <Image url="@../imgs/add.png" />
                                        </image>
@@ -31,6 +31,9 @@
                                  <font>
                                     <Font size="15.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                 </padding>
                               </Label>
                            </children>
                         </HBox>
@@ -39,7 +42,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <Label blendMode="DARKEN" onMouseClicked="#handleBookSearchAction" text="Search">
+                        <Label id="button" blendMode="DARKEN" onMouseClicked="#handleBookSearchAction" prefHeight="20.0" prefWidth="91.0" stylesheets="@../stylesheets/maincontainer.css" text="Search">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -50,6 +53,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <padding>
+                              <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                           </padding>
                         </Label>
       					</children>
       					<opaqueInsets>
