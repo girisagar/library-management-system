@@ -32,6 +32,7 @@ public class LoginController extends Application {
 	        
 	        stage.setTitle("Login");
 	        stage.setScene(new Scene(root, 340, 250));
+	        stage.setFullScreen(true);
 	        stage.show();
 	    }
 	    
@@ -65,7 +66,7 @@ public class LoginController extends Application {
 						Parent mainParent = FXMLLoader.load(getClass().getResource("fxml/MainContainer.fxml"));
 				        Stage mainStage = new Stage();
 				        mainStage.setTitle("Login");
-//				        mainStage.setFullScreen(true);
+				        mainStage.setFullScreen(true);
 				        mainStage.setScene(new Scene(mainParent));
 				        mainStage.show();
 				        

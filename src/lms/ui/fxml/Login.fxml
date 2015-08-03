@@ -27,7 +27,7 @@
         <children>
             <Label id="button" onMouseClicked="#handleLoginSubmitButtonAction" stylesheets="@../stylesheets/login.css" text="  Sign In" textFill="WHITE">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleLoginSubmitButtonAction" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleLoginSubmitButtonAction" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                      <image>
                         <Image url="@../imgs/unlock.png" />
                      </image>

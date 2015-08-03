@@ -85,7 +85,7 @@ public class InterfaceController implements Initializable{
 			loginParent = (Parent) fxmlLoader.load();
 			Stage mainStage = new Stage();
 	        mainStage.setTitle("Login");
-//	        mainStage.setFullScreen(true);
+	        mainStage.setFullScreen(true);
 	        mainStage.setScene(new Scene(loginParent));
 	        mainStage.show();
 	        
