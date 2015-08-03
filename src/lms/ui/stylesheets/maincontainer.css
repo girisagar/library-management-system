@@ -1,13 +1,13 @@
 .header-logo {
-	-fx-background-color: #34495E; 
+	-fx-background-color: #3D8EB9; 
 }
 
 .header-right {
-	-fx-background-color: #3366CC;
+	-fx-background-color: #34495E;
 }
 
 .left {
-	-fx-background-color: #006666;
+	-fx-background-color: #42729B;
 }
 
 #button {
