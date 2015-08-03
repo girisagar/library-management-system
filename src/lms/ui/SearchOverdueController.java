@@ -1,21 +1,14 @@
 package lms.ui;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import lms.business.CheckoutRecordEntry;
+import javafx.scene.input.MouseEvent;
 import lms.business.ControllerInterface;
-import lms.business.LibraryMember;
 import lms.business.LibrarySystemException;
 import lms.business.SystemController;
 
@@ -34,7 +27,7 @@ public class SearchOverdueController {
     private Label labelIsbnValue;
 
     @FXML
-    void handleSearchOverDueClickAction(ActionEvent event) {
+    void handleSearchOverDueClickAction(MouseEvent event) {
 //    	Alert()
     	String isbn = textIsbn.getText().toString();
     	ControllerInterface controller = new SystemController();
@@ -46,5 +39,11 @@ public class SearchOverdueController {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
 			alert.show();
 		}
+    }
+    
+    @FXML
+    void handleHideOverDueClickAction(MouseEvent event) {
+    	CheckoutRecordController controller = new CheckoutRecordController();
+    	controller.clearSubView();
     }
 }

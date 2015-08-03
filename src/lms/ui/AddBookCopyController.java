@@ -3,13 +3,13 @@ package lms.ui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import lms.business.Book;
 import lms.business.LibrarySystemException;
 import lms.business.SystemController;
@@ -29,7 +29,7 @@ public class AddBookCopyController implements Initializable {
 	
 
 	@FXML
-	protected void handleAddBookCopyActionListener(ActionEvent event) {
+	protected void handleAddBookCopyActionListener(MouseEvent event) {
 		
 		AddBookCopyRuleSet rule = new AddBookCopyRuleSet();
 		
@@ -58,17 +58,13 @@ public class AddBookCopyController implements Initializable {
 			Alert alert = new Alert(AlertType.ERROR, e1.getMessage());
 			alert.show();
 		}
-		
-		
-		
-//		try {
-//			Book updatedBook = controller.addBookCopy(book.getIsbn());
-//			bc.changeCellValue(updatedBook);
-//		} catch (LibrarySystemException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}		
-		
+				
+	}
+	
+	@FXML
+	protected void handleHideBookCopyActionListener(MouseEvent event) {
+		BookTableController controller = new BookTableController();
+		controller.clearSubView();
 	}
 
 	@Override

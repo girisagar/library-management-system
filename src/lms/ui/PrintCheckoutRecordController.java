@@ -3,10 +3,11 @@ package lms.ui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import lms.business.CheckoutRecord;
 import lms.business.CheckoutRecordEntry;
 import lms.business.ControllerInterface;
@@ -25,7 +26,7 @@ public class PrintCheckoutRecordController {
 	private TextField textMemberId;
 
 	@FXML
-	void handlePrintCheckoutRecordActionListener(ActionEvent event) {
+	void handlePrintCheckoutRecordActionListener(MouseEvent event) {
 		String memberId = textMemberId.getText().toString();
 		ControllerInterface controller = new SystemController();
 		
@@ -45,6 +46,12 @@ public class PrintCheckoutRecordController {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
 			alert.show();
 		}
+	}
+	
+	@FXML
+	void handleHideCheckoutRecordActionListener(MouseEvent event) {
+		CheckoutRecordController controller = new CheckoutRecordController();
+		controller.clearSubView();
 	}
 
 }

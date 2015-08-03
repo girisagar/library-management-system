@@ -12,21 +12,7 @@
 <AnchorPane id="mainContent" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.ui.InterfaceController">
   <!-- TODO Add Nodes -->
   <children>
-    <MenuBar prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Exit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <BorderPane fx:id="mainBorder" prefHeight="575.9998779296875" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+    <BorderPane fx:id="mainBorder" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
         <AnchorPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0">
                <BorderPane.margin>
@@ -188,7 +174,7 @@
               </stylesheets>
                      <children>
                         <ImageView fx:id="projectImage" fitHeight="48.0" fitWidth="48.0" layoutX="4.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-                        <Pane layoutX="57.0" layoutY="20.0" prefHeight="45.0" prefWidth="144.0">
+                        <Pane layoutX="55.0" layoutY="20.0" prefHeight="45.0" prefWidth="144.0">
                            <children>
                               <Label layoutY="21.0" prefHeight="19.0" prefWidth="145.0" text="Management System" textFill="WHITE">
                                  <font>

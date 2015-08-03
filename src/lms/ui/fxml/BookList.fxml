@@ -70,9 +70,9 @@
       						<TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
       						<TableColumn fx:id="bookTitle" prefWidth="75.0" text="Title" />
       
-                  						<TableColumn fx:id="author" prefWidth="102.0" text="Author" />
+                  						<TableColumn fx:id="author" prefWidth="99.0" text="Author" />
       						<TableColumn fx:id="copies" minWidth="7.0" prefWidth="59.0" text="Copies" />
-      						<TableColumn fx:id="maxCheckout" prefWidth="163.0" text="Max Checkout Length" />
+      						<TableColumn fx:id="maxCheckout" prefWidth="154.0" text="Max Checkout Length" />
       
                   					</columns>
       					<cursor>

@@ -2,15 +2,14 @@ package lms.ui;
 
 
 import java.net.URL;
-import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import lms.business.CheckoutRecord;
 import lms.business.ControllerInterface;
 import lms.business.LibrarySystemException;
@@ -36,7 +35,7 @@ public class AddCheckoutRecordController {
     private TextField textMemberId;
 
     @FXML
-    void handleAddCheckoutRecordActionListener(ActionEvent event) {
+    void handleAddCheckoutRecordActionListener(MouseEvent event) {
     	String isbn = textIsbn.getText().toString();
     	String memberId = textMemberId.getText().toString();
     	
@@ -49,6 +48,12 @@ public class AddCheckoutRecordController {
 			Alert alert = new Alert(AlertType.ERROR, e.getMessage());
 			alert.show();
 		}
+    }
+    
+    @FXML
+    void handleHideCheckoutRecordActionListener(MouseEvent event) {
+    	CheckoutRecordController controller = new CheckoutRecordController();
+    	controller.clearSubView();
     }
     
     static void addEntryToTables(CheckoutRecord record){

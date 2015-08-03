@@ -23,7 +23,7 @@
                               <Font size="15.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#handleAddMemberClickListener" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleAddMemberClickListener" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/addMember.png" />
                                  </image>
@@ -72,7 +72,7 @@
 			<right>
 				<BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 					<top>
-						<HBox prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+						<HBox prefHeight="33.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
 					</top>
 					<center>
 						<AnchorPane fx:id="addFormContent" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">

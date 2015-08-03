@@ -124,6 +124,7 @@ public class CheckoutRecordController implements Initializable {
 		overdueListTable = overdueTableView;
 		tableContent = addTableContent;
 		textFlow = textPrintFlow;
+		addContent = addFormContent;
 		
 		setChekoutVisible();
 		isbn.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookIsbn"));
@@ -131,6 +132,11 @@ public class CheckoutRecordController implements Initializable {
 		copies.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookCopy"));
 		checkOutDate.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("checkoutDate"));
 		dueDate.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("dueDate"));
+	}
+	
+	public void clearSubView() {
+		addContent.setStyle("");
+		addContent.getChildren().clear();
 	}
 	
 	public void addDataToTable(ArrayList<CheckoutRecordEntry> arrayList){

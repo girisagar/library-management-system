@@ -20,7 +20,7 @@
 							<children>
 								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="603.0">
 									<children>
-                              <Label id="button" onMouseClicked="#handleAddCheckoutClickListener" prefHeight="27.0" prefWidth="190.0" stylesheets="@../stylesheets/maincontainer.css" text="Add Checkout Record">
+                              <Label id="button" onMouseClicked="#handleAddCheckoutClickListener" prefHeight="27.0" prefWidth="197.0" stylesheets="@../stylesheets/maincontainer.css" text="Add Checkout Record">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleAddCheckoutClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
                                        <image>
@@ -32,14 +32,14 @@
                                     <Font size="15.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="5.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </Label>
-                              <Label id="button" onMouseClicked="#handlePrintCheckoutClickListener" prefHeight="27.0" prefWidth="190.0" stylesheets="@../stylesheets/maincontainer.css" text="Print Checkout Record">
+                              <Label id="button" onMouseClicked="#handlePrintCheckoutClickListener" prefHeight="27.0" prefWidth="203.0" stylesheets="@../stylesheets/maincontainer.css" text="Print Checkout Record">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handlePrintCheckoutClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
                                        <image>
-                                          <Image url="@../imgs/add.png" />
+                                          <Image url="@../imgs/print.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -54,7 +54,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleSearchOverdueClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
                                        <image>
-                                          <Image url="@../imgs/add.png" />
+                                          <Image url="@../imgs/search.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
