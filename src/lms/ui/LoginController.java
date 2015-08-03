@@ -83,7 +83,7 @@ public class LoginController extends Application {
 				        mainStage.setWidth(bounds.getWidth());
 				        mainStage.setHeight(bounds.getHeight());
 				        
-				        mainStage.setTitle("Login");
+				        mainStage.setTitle("Library Management System");
 //				        mainStage.setFullScreen(true);
 				        mainStage.setScene(new Scene(mainParent));
 				        mainStage.show();
