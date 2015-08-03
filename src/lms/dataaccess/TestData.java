@@ -43,16 +43,16 @@ public class TestData {
 	private final List<LibraryMember> allMembers = new ArrayList<LibraryMember>() {
 		{
 
-			add(new LibraryMember("001", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "Street 001",
-					"city001", "state001", "zip001"));
-			add(new LibraryMember("002", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "Street 002",
-					"city002", "state002", "zip002"));
-			add(new LibraryMember("003", "Ethan", "Williams", "ethan.williams@example.com", "453535", "Street 003",
-					"city003", "state003", "zip003"));
-			add(new LibraryMember("004", "Emma", "Jones", "emma.jones@example.com", "453535", "Street 004", "city004",
-					"state004", "zip004"));
-			add(new LibraryMember("005", "Michael", "Brown", "michael.brown@example.com", "453535", "Street 005",
-					"city005", "state005", "zip005"));
+			add(new LibraryMember("001", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "1107 Primrose Lane",
+					"Waumandee", "WI", "54622"));
+			add(new LibraryMember("002", "Isabella", "Johnson", "isabella.johnson@example.com", "453535", "4953 Oliver Street",
+					"Frisco", "TX", "75034"));
+			add(new LibraryMember("003", "Ethan", "Williams", "ethan.williams@example.com", "453535", "3549 Tanglewood Road",
+					"Jakson", "MS", "39201"));
+			add(new LibraryMember("004", "Emma", "Jones", "emma.jones@example.com", "453535", "4511 Retreat Avenue", "Portland",
+					"ME", "04101"));
+			add(new LibraryMember("005", "Michael", "Brown", "michael.brown@example.com", "453535", "2654 Shingleton Road",
+					"Sister Lakes", "MI", "49045"));
 		}
 
 	};
