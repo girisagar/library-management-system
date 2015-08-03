@@ -2,15 +2,11 @@ package lms.ui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.Map.Entry;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -24,9 +20,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
-import lms.business.Book;
 import lms.business.CheckoutRecordEntry;
 import lms.business.ControllerInterface;
 import lms.business.LibraryMember;
@@ -66,13 +62,13 @@ public class CheckoutRecordController implements Initializable {
     private TableColumn<CheckoutRecordEntry, String> bookTitle;
 
     @FXML
-    void handleAddCheckoutClickListener(ActionEvent event) {
+    void handleAddCheckoutClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			setChekoutVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/AddCheckoutRecord.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {
@@ -81,12 +77,12 @@ public class CheckoutRecordController implements Initializable {
     }
 
     @FXML
-    void handlePrintCheckoutClickListener(ActionEvent event) {
+    void handlePrintCheckoutClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/PrintCheckoutRecord.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {
@@ -96,13 +92,13 @@ public class CheckoutRecordController implements Initializable {
     }
     
     @FXML
-    void handleSearchOverdueClickListener(ActionEvent event) {
+    void handleSearchOverdueClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			setOverdueVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/SearchOverdue.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {

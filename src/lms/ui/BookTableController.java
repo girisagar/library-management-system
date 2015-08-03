@@ -113,7 +113,8 @@ public class BookTableController implements Initializable {
 			// InterfaceController controller = new InterfaceController();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/AddBook.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+//			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			// System.out.println(super.getMainContent());
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;

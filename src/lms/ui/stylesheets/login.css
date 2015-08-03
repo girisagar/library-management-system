@@ -11,8 +11,8 @@ root {
 	-fx-fill: #00000f;
 }
 
-.button {
-    
+#button {
+    -fx-border-color:white;
 }
 
 #labelLogin {
@@ -20,5 +20,7 @@ root {
 -fx-border-color: white;
 }
 
-.button:hover {
+#button:hover {
+	-fx-background-color: #34495e;
+	-fx-text-fill: white;
 }
