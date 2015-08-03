@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -82,13 +83,13 @@ public class CheckoutRecordController implements Initializable {
     private TableColumn<CheckoutRecordEntry, String> bookTitle;
 
     @FXML
-    void handleAddCheckoutClickListener(ActionEvent event) {
+    void handleAddCheckoutClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			setChekoutVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/AddCheckoutRecord.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {
@@ -97,13 +98,13 @@ public class CheckoutRecordController implements Initializable {
     }
 
     @FXML
-    void handlePrintCheckoutClickListener(ActionEvent event) {
+    void handlePrintCheckoutClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			setPrintCheckoutVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/PrintCheckoutRecord.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {
@@ -113,13 +114,13 @@ public class CheckoutRecordController implements Initializable {
     }
     
     @FXML
-    void handleSearchOverdueClickListener(ActionEvent event) {
+    void handleSearchOverdueClickListener(MouseEvent event) {
     	Parent root;
 		try {
 			setOverdueVisible();
 			addFormContent.getChildren().clear();
 			root = FXMLLoader.load(getClass().getResource("fxml/SearchOverdue.fxml"));
-			addFormContent.setStyle("-fx-background-color: white;");
+			addFormContent.setStyle("-fx-border-color: black;");
 			addFormContent.getChildren().add(root);
 			addContent = addFormContent;
 		} catch (IOException e) {
@@ -132,6 +133,7 @@ public class CheckoutRecordController implements Initializable {
 		overdueListTable = overdueTableView;
 		tableContent = addTableContent;
 		textFlow = textPrintFlow;
+		addContent = addFormContent;
 		
 		setChekoutVisible();
 		isbn.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookIsbn"));
@@ -139,6 +141,11 @@ public class CheckoutRecordController implements Initializable {
 		copies.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("bookCopy"));
 		checkOutDate.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("checkoutDate"));
 		dueDate.setCellValueFactory(new PropertyValueFactory<CheckoutRecordEntry, String>("dueDate"));
+	}
+	
+	public void clearSubView() {
+		addContent.setStyle("");
+		addContent.getChildren().clear();
 	}
 	
 	public void addDataToTable(ArrayList<CheckoutRecordEntry> arrayList){

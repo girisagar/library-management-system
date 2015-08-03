@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
@@ -19,39 +20,57 @@
 							<children>
 								<HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="603.0">
 									<children>
-										<Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAddCheckoutClickListener" prefHeight="25.0" prefWidth="224.0" text="Add Checkout Record">
-											<cursor>
-												<Cursor fx:constant="DEFAULT" />
-											</cursor>
-											<HBox.margin>
-												<Insets left="10.0" right="10.0" />
-											</HBox.margin>
-										</Button>
-										<Button alignment="CENTER" mnemonicParsing="false" onAction="#handlePrintCheckoutClickListener" prefHeight="25.0" prefWidth="234.0" text="Print Checkout Record">
-											<cursor>
-												<Cursor fx:constant="DEFAULT" />
-											</cursor>
+                              <Label id="button" onMouseClicked="#handleAddCheckoutClickListener" prefHeight="27.0" prefWidth="197.0" stylesheets="@../stylesheets/maincontainer.css" text="Add Checkout Record">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleAddCheckoutClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
+                                       <image>
+                                          <Image url="@../imgs/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
-										</Button>
-                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleSearchOverdueClickListener" prefHeight="25.0" prefWidth="234.0" text="Search Overdue">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor>
+                              </Label>
+                              <Label id="button" onMouseClicked="#handlePrintCheckoutClickListener" prefHeight="27.0" prefWidth="203.0" stylesheets="@../stylesheets/maincontainer.css" text="Print Checkout Record">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handlePrintCheckoutClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
+                                       <image>
+                                          <Image url="@../imgs/print.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                  <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
+                                    <Insets left="15.0" />
                                  </HBox.margin>
-                              </Button>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label id="button" onMouseClicked="#handleSearchOverdueClickListener" prefHeight="27.0" prefWidth="175.0" stylesheets="@../stylesheets/maincontainer.css" text="Search Overdue">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleSearchOverdueClickListener" pickOnBounds="true" preserveRatio="true" scaleX="0.6" scaleY="0.6">
+                                       <image>
+                                          <Image url="@../imgs/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
 									</children>
 								</HBox>
 							</children>
 							<opaqueInsets>
 								<Insets />
 							</opaqueInsets>
-							<effect>
-								<DropShadow color="#27e44d" height="38.79" radius="22.6025" width="53.62" />
-							</effect>
 							<cursor>
 								<Cursor fx:constant="DEFAULT" />
 							</cursor>

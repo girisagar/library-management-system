@@ -25,7 +25,7 @@
      <PasswordField id="password-text" fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
      <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <children>
-            <Label id="labelLogin" onMouseClicked="#handleLoginSubmitButtonAction" text="  Sign In" textFill="WHITE">
+            <Label id="button" onMouseClicked="#handleLoginSubmitButtonAction" stylesheets="@../stylesheets/login.css" text="  Sign In" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#handleLoginSubmitButtonAction" pickOnBounds="true" preserveRatio="true">
                      <image>

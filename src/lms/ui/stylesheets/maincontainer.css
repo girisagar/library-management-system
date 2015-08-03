@@ -1,5 +1,5 @@
 .header-logo {
-	-fx-background-color: #686868; 
+	-fx-background-color: #34495E; 
 }
 
 .header-right {
@@ -14,4 +14,10 @@
 	-fx-border-color:black;
 	-fx-margin-left:5px;
 	-fx-margin-right:5px;
+}
+
+#button:hover {
+	-fx-background-color: #95a5a6;
+	-fx-text-fill: white;
+	
 }

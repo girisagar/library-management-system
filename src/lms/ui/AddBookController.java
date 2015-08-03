@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import lms.business.Author;
 import lms.business.Book;
 import lms.business.LibrarySystemException;
@@ -63,7 +64,7 @@ public class AddBookController implements Initializable{
 	}	
 
     @FXML
-    void handleAddBookClickListener(ActionEvent event) {
+    void handleAddBookClickListener(MouseEvent event) {
     	
     	AddBookRuleSet rule = new AddBookRuleSet();
     	try {
@@ -112,6 +113,12 @@ public class AddBookController implements Initializable{
 			alert.show();
 		}
     	
+    }
+    
+    @FXML
+    void handleHideBookClickListener(MouseEvent event) {
+    	BookTableController controller = new BookTableController();
+    	controller.clearSubView();
     }
     
   
