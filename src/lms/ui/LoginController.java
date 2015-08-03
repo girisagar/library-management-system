@@ -47,7 +47,6 @@ public class LoginController extends Application {
 	    }
 	    
 	    public String getUserName(){
-	    	System.out.println( this.userName.getText().toString());
 	    	return this.userName.getText().toString();
 	    }
 	    
@@ -96,7 +95,6 @@ public class LoginController extends Application {
 					alert.showAndWait();
 				}
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
 				Alert alert = new Alert(AlertType.WARNING, e.getMessage());
 				alert.showAndWait();
 			}

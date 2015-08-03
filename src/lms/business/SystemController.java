@@ -101,7 +101,6 @@ public class SystemController implements ControllerInterface {
 					copy.changeAvailability();
 					book.updateCopies(copy);
 					da.saveNewBook(book);
-					System.out.println(copy.isAvailable());
 					return copy;
 				}
 			}
@@ -116,7 +115,6 @@ public class SystemController implements ControllerInterface {
 		String memberId = member.getMemberId().toString();
 		CheckoutRecord record = null;
 		if(da.isCheckoutRecordExists(memberId)){
-			System.out.println("yes");
 			record = da.searchCheckoutRecord(memberId);
 			record.addCheckoutRecordEntry(entry);
 		}else{
@@ -214,10 +212,7 @@ public class SystemController implements ControllerInterface {
      				}
      			}
           }
-        }		
-		for(String e: overdueEntries.keySet()){
-			System.out.println(e);
-		}
+        }
 		return overdueEntries;
 	}
 
